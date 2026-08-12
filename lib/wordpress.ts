@@ -481,8 +481,8 @@ const MOCK_INDUSTRIES: IndustryData[] = [
     title: 'Logistics & Supply Chain', 
     slug: 'logistics-supply-chain', 
     excerpt: 'Optimizing transport documentation, freight billing, track-and-trace operations, and vendor management to keep supply chains moving efficiently.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c66363?auto=format&fit=crop&q=80',
-    secondaryImage: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80',
     overview: 'Global supply chains are paralyzed by archaic, paper-based processes. We digitize and automate transport documentation to ensure goods move without administrative delays.',
     challenges: [
       { title: 'Paper-Based Delays', desc: 'Trucks sitting idle at borders because bills of lading and customs documents are missing or incorrect.' },
