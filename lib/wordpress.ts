@@ -33,6 +33,7 @@ export type ServiceData = {
   image: string;
   secondaryImage: string;
   overview: string;
+  excerpt: string;
   deliverables: { title: string; description: string; icon: string }[];
   methodology: { step: number; title: string; description: string }[];
   businessImpact: { title: string; description: string }[];
@@ -40,64 +41,13 @@ export type ServiceData = {
 
 const MOCK_SERVICES: ServiceData[] = [
   {
-    title: 'Master Data Management',
-    slug: 'master-data',
-    category: 'back-office',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
-    secondaryImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
-    overview: 'Inconsistent data across siloed departments leads to catastrophic decision-making errors. Our Master Data Management (MDM) services ensure that your enterprise has a singular, infallible source of truth.',
-    deliverables: [
-      { title: 'Data Cleansing', description: 'Aggressive deduplication and standardization of corrupted, legacy database structures.', icon: 'Eraser' },
-      { title: 'Governance Frameworks', description: 'Implementing strict data entry protocols to ensure long-term database integrity.', icon: 'ShieldCheck' },
-      { title: 'System Synchronization', description: 'Building automated bridges between your CRM, ERP, and localized spreadsheets.', icon: 'Network' },
-      { title: 'Taxonomy Standardization', description: 'Categorizing global product and customer data into a unified, searchable hierarchy.', icon: 'Tags' }
-    ],
-    methodology: [
-      { step: 1, title: 'Data Architecture Audit', description: 'We map out every single place your data currently lives, identifying silos, redundancies, and critical points of failure across your entire enterprise software stack.' },
-      { step: 2, title: 'Cleansing & Deduplication', description: 'Our specialists run advanced algorithms and manual checks to merge duplicate records, delete obsolete data, and correct formatting inconsistencies.' },
-      { step: 3, title: 'Governance Implementation', description: 'We establish strict new rules for how data enters your systems moving forward, ensuring that the database remains pristine and accurate.' },
-      { step: 4, title: 'Continuous Monitoring', description: 'We deploy ongoing quality control protocols that automatically flag data anomalies for human review before they can impact your reporting.' }
-    ],
-    businessImpact: [
-      { title: '100% Reporting Accuracy', description: 'Executives can finally trust the dashboards they are looking at to make multi-million dollar decisions.' },
-      { title: 'Reduced IT Overload', description: 'Stop paying expensive engineers to manually fix database errors on a daily basis.' },
-      { title: 'Faster ERP Migrations', description: 'Clean data reduces the time and cost of migrating to new enterprise software by up to 40%.' },
-      { title: 'Regulatory Compliance', description: 'Ensure all customer data meets stringent international privacy standards like GDPR and CCPA.' }
-    ]
-  },
-  {
-    title: 'Robotic Process Automation',
-    slug: 'rpa',
-    category: 'automation',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80',
-    secondaryImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80',
-    overview: 'Stop paying humans to act like robots. We build, deploy, and manage intelligent digital workforces that execute high-volume, repetitive tasks 24/7 with absolute precision.',
-    deliverables: [
-      { title: 'Unattended Bot Development', description: 'Engineering robust software robots that execute back-office tasks silently in the background.', icon: 'Bot' },
-      { title: 'Cognitive AI Integration', description: 'Enabling bots to read unstructured emails, interpret sentiment, and make basic decisions.', icon: 'BrainCircuit' },
-      { title: 'Bot Orchestration', description: 'Centralized management of your digital workforce to ensure maximum uptime and utilization.', icon: 'LayoutDashboard' },
-      { title: 'Legacy System Integration', description: 'Using UI-level automation to connect archaic mainframes that lack modern API capabilities.', icon: 'Code' }
-    ],
-    methodology: [
-      { step: 1, title: 'Process Mining', description: 'We monitor your employees keystrokes and clicks to scientifically identify the most repetitive, time-consuming tasks ripe for automation.' },
-      { step: 2, title: 'Bot Engineering', description: 'Our developers code highly resilient RPA scripts designed to handle UI changes, pop-ups, and unexpected system errors without crashing.' },
-      { step: 3, title: 'Staging & Testing', description: 'Bots are deployed in a sandbox environment and run against thousands of edge-cases to ensure 100% accuracy before touching live data.' },
-      { step: 4, title: 'Hypercare & Maintenance', description: 'After going live, we provide 24/7 monitoring to immediately fix any bots that fail due to underlying application updates.' }
-    ],
-    businessImpact: [
-      { title: 'Zero Error Rate', description: 'Bots do not get tired, distracted, or make transcription errors. Accuracy is guaranteed at 100%.' },
-      { title: '24/7/365 Execution', description: 'Your back-office operations continue running flawlessly through the night, weekends, and holidays.' },
-      { title: 'Massive Cost Reduction', description: 'A single software bot costs a fraction of a full-time employee while doing the work of three.' },
-      { title: 'Rapid Scalability', description: 'Spin up 50 additional bots instantly to handle massive seasonal volume spikes without hiring.' }
-    ]
-  },
-  {
     title: 'Finance & Accounting Operations',
     slug: 'finance-accounting',
-    category: 'fna',
+    category: 'back-office',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
     secondaryImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80',
     overview: 'Transform your finance department from a historical reporting center into a forward-looking strategic asset. We optimize P2P, O2C, and R2R workflows.',
+    excerpt: 'End-to-end management of Procure-to-Pay, Order-to-Cash, and Record-to-Report workflows to reduce DSO and accelerate month-end close.',
     deliverables: [
       { title: 'Procure-to-Pay (P2P)', description: 'End-to-end management of vendor onboarding, invoice processing, and payment disbursements.', icon: 'ShoppingCart' },
       { title: 'Order-to-Cash (O2C)', description: 'Accelerating revenue realization through optimized credit management and aggressive collections.', icon: 'TrendingUp' },
@@ -124,6 +74,7 @@ const MOCK_SERVICES: ServiceData[] = [
     image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80',
     secondaryImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80',
     overview: 'Free your HR leaders to focus on company culture and talent strategy by offloading the massive administrative burden of employee lifecycle management.',
+    excerpt: 'Seamless execution of global payroll, benefits administration, onboarding, and employee helpdesk support.',
     deliverables: [
       { title: 'Global Payroll Processing', description: 'Flawless execution of multi-currency, multi-jurisdiction payroll with absolute compliance.', icon: 'CreditCard' },
       { title: 'Benefits Administration', description: 'Managing complex employee enrollments, claims processing, and vendor reconciliations.', icon: 'HeartPulse' },
@@ -150,6 +101,7 @@ const MOCK_SERVICES: ServiceData[] = [
     image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c66363?auto=format&fit=crop&q=80',
     secondaryImage: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80',
     overview: 'Stop overpaying for indirect materials and services. We bring discipline, data visibility, and rigorous vendor management to your procurement lifecycle.',
+    excerpt: 'End-to-end tactical buying, vendor master management, spend analytics, and contract lifecycle administration.',
     deliverables: [
       { title: 'Spend Analytics', description: 'Deep-dive categorization of enterprise spending to identify rogue purchasing and consolidation opportunities.', icon: 'BarChart' },
       { title: 'Vendor Master Management', description: 'Rigorous vetting, onboarding, and continuous risk monitoring of your global supply base.', icon: 'Database' },
@@ -168,46 +120,253 @@ const MOCK_SERVICES: ServiceData[] = [
       { title: 'Supply Chain Resilience', description: 'Continuous monitoring of vendor financial health and geopolitical risks to prevent supply disruptions.' },
       { title: 'Faster Cycle Times', description: 'Reduce the time it takes for an employee to request an item and actually receive it.' }
     ]
+  },
+  {
+    title: 'IT Helpdesk & Asset Management',
+    slug: 'it-helpdesk',
+    category: 'back-office',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1531496730074-83b638c0a7ac?auto=format&fit=crop&q=80',
+    overview: 'Ensure maximum uptime for your workforce with 24/7 IT support, software provisioning, and hardware asset management.',
+    excerpt: 'Global 24/7 technical support, ticket resolution, user provisioning, and enterprise asset tracking.',
+    deliverables: [
+      { title: 'Tier 1 & 2 Helpdesk', description: 'Resolving daily software issues, password resets, and connectivity problems.', icon: 'Headset' },
+      { title: 'Access Management', description: 'Secure provisioning and de-provisioning of employee software access.', icon: 'ShieldCheck' },
+      { title: 'Asset Tracking', description: 'Managing the lifecycle of corporate laptops, mobile devices, and peripherals.', icon: 'Database' },
+      { title: 'Incident Routing', description: 'Escalating severe technical issues to specialized Level 3 engineering teams.', icon: 'Network' }
+    ],
+    methodology: [
+      { step: 1, title: 'System Audits', description: 'Cataloging your current software footprint and user access protocols.' },
+      { step: 2, title: 'Knowledge Base', description: 'Building a robust internal wiki to solve common issues instantly.' },
+      { step: 3, title: 'Helpdesk Launch', description: 'Deploying our 24/7 global support team with integrated ticketing systems.' },
+      { step: 4, title: 'Trend Analysis', description: 'Reviewing ticket data to identify and permanently fix recurring IT failures.' }
+    ],
+    businessImpact: [
+      { title: 'Reduced Downtime', description: 'Employees get back to work faster, saving thousands of hours of lost productivity.' },
+      { title: 'Software Savings', description: 'Identifying and removing unused software licenses across the company.' },
+      { title: 'Security Compliance', description: 'Immediate removal of system access during employee terminations.' },
+      { title: 'Scalable Support', description: 'Ability to support a rapidly growing global workforce.' }
+    ]
+  },
+  {
+    title: 'Document Management',
+    slug: 'document-management',
+    category: 'back-office',
+    image: 'https://images.unsplash.com/photo-1618044733300-9472054094ee?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1568225367111-440f3532c1eb?auto=format&fit=crop&q=80',
+    overview: 'Digitize, index, and securely store millions of physical and digital records to ensure compliance and rapid retrieval.',
+    excerpt: 'High-volume document digitization, indexing, compliance archiving, and secure data extraction.',
+    deliverables: [
+      { title: 'Digital Conversion', description: 'Scanning and digitizing high volumes of paper records.', icon: 'Scan' },
+      { title: 'Data Extraction', description: 'Using OCR to pull structured data from unstructured contracts and forms.', icon: 'FileText' },
+      { title: 'Metadata Indexing', description: 'Categorizing documents so they can be instantly retrieved during an audit.', icon: 'Tags' },
+      { title: 'Secure Archiving', description: 'Managing the legal retention policies and secure destruction of expired records.', icon: 'Archive' }
+    ],
+    methodology: [
+      { step: 1, title: 'Inventory Assessment', description: 'Determining the scale and security requirements of your document backlog.' },
+      { step: 2, title: 'Digitization', description: 'Running physical documents through high-speed scanners.' },
+      { step: 3, title: 'OCR & Indexing', description: 'Software reads the documents and assigns searchable metadata tags.' },
+      { step: 4, title: 'Cloud Migration', description: 'Securely transferring the digitized files into your enterprise CMS.' }
+    ],
+    businessImpact: [
+      { title: 'Instant Retrieval', description: 'Find any document in seconds rather than spending hours digging through boxes.' },
+      { title: 'Reduced Storage Costs', description: 'Eliminate expensive physical warehouse storage fees.' },
+      { title: 'Audit Readiness', description: 'Never fail a regulatory audit due to missing paperwork again.' },
+      { title: 'Data Security', description: 'Protect sensitive records from physical damage and unauthorized access.' }
+    ]
+  },
+  {
+    title: 'Customer Support Operations',
+    slug: 'customer-support',
+    category: 'back-office',
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?auto=format&fit=crop&q=80',
+    overview: 'Provide exceptional, omnichannel customer experiences 24/7 without the massive overhead of managing an in-house contact center.',
+    excerpt: 'Global, 24/7 omnichannel customer service, order management, and technical troubleshooting.',
+    deliverables: [
+      { title: 'Omnichannel Support', description: 'Managing inquiries across phone, email, live chat, and social media.', icon: 'Headset' },
+      { title: 'Order Management', description: 'Processing returns, refunds, and tracking inquiries for e-commerce brands.', icon: 'ShoppingCart' },
+      { title: 'Technical Troubleshooting', description: 'Resolving Tier 1 product issues for SaaS and hardware companies.', icon: 'Settings' },
+      { title: 'Customer Success', description: 'Proactive outreach to ensure clients are fully utilizing your product.', icon: 'Smile' }
+    ],
+    methodology: [
+      { step: 1, title: 'SLA Definition', description: 'Establishing strict targets for response times and customer satisfaction scores.' },
+      { step: 2, title: 'Agent Training', description: 'Immersing our dedicated teams in your brand voice and product knowledge.' },
+      { step: 3, title: 'Omnichannel Launch', description: 'Deploying agents across all your preferred communication platforms.' },
+      { step: 4, title: 'Continuous Coaching', description: 'Regularly reviewing calls and chats to constantly improve service quality.' }
+    ],
+    businessImpact: [
+      { title: 'Increased CSAT', description: 'Significantly higher Customer Satisfaction and Net Promoter Scores.' },
+      { title: '24/7 Availability', description: 'Serve your global customers in their timezone without paying night-shift premiums.' },
+      { title: 'Lower Wait Times', description: 'Rapidly scale agent headcount during peak seasons to eliminate hold times.' },
+      { title: 'Cost Efficiency', description: 'Reduce contact center overhead by up to 50% compared to onshore teams.' }
+    ]
+  },
+
+  // PROCESS EXCELLENCE SERVICES (6)
+  {
+    title: 'Master Data Management',
+    slug: 'master-data',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+    overview: 'Inconsistent data across siloed departments leads to catastrophic decision-making errors. Our Master Data Management (MDM) services ensure that your enterprise has a singular, infallible source of truth.',
+    excerpt: 'Ensuring your enterprise has a singular, infallible source of truth through aggressive data deduplication and governance.',
+    deliverables: [
+      { title: 'Data Cleansing', description: 'Aggressive deduplication and standardization of corrupted, legacy database structures.', icon: 'Eraser' },
+      { title: 'Governance Frameworks', description: 'Implementing strict data entry protocols to ensure long-term database integrity.', icon: 'ShieldCheck' },
+      { title: 'System Synchronization', description: 'Building automated bridges between your CRM, ERP, and localized spreadsheets.', icon: 'Network' },
+      { title: 'Taxonomy Standardization', description: 'Categorizing global product and customer data into a unified, searchable hierarchy.', icon: 'Tags' }
+    ],
+    methodology: [
+      { step: 1, title: 'Data Architecture Audit', description: 'We map out every single place your data currently lives, identifying silos, redundancies, and critical points of failure across your entire enterprise software stack.' },
+      { step: 2, title: 'Cleansing & Deduplication', description: 'Our specialists run advanced algorithms and manual checks to merge duplicate records, delete obsolete data, and correct formatting inconsistencies.' },
+      { step: 3, title: 'Governance Implementation', description: 'We establish strict new rules for how data enters your systems moving forward, ensuring that the database remains pristine and accurate.' },
+      { step: 4, title: 'Continuous Monitoring', description: 'We deploy ongoing quality control protocols that automatically flag data anomalies for human review before they can impact your reporting.' }
+    ],
+    businessImpact: [
+      { title: '100% Reporting Accuracy', description: 'Executives can finally trust the dashboards they are looking at to make multi-million dollar decisions.' },
+      { title: 'Reduced IT Overload', description: 'Stop paying expensive engineers to manually fix database errors on a daily basis.' },
+      { title: 'Faster ERP Migrations', description: 'Clean data reduces the time and cost of migrating to new enterprise software by up to 40%.' },
+      { title: 'Regulatory Compliance', description: 'Ensure all customer data meets stringent international privacy standards like GDPR and CCPA.' }
+    ]
+  },
+  {
+    title: 'Robotic Process Automation',
+    slug: 'rpa',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80',
+    overview: 'Stop paying humans to act like robots. We build, deploy, and manage intelligent digital workforces that execute high-volume, repetitive tasks 24/7 with absolute precision.',
+    excerpt: 'Building and deploying intelligent software robots to execute high-volume, repetitive tasks 24/7 with zero errors.',
+    deliverables: [
+      { title: 'Unattended Bot Development', description: 'Engineering robust software robots that execute back-office tasks silently in the background.', icon: 'Bot' },
+      { title: 'Cognitive AI Integration', description: 'Enabling bots to read unstructured emails, interpret sentiment, and make basic decisions.', icon: 'BrainCircuit' },
+      { title: 'Bot Orchestration', description: 'Centralized management of your digital workforce to ensure maximum uptime and utilization.', icon: 'LayoutDashboard' },
+      { title: 'Legacy System Integration', description: 'Using UI-level automation to connect archaic mainframes that lack modern API capabilities.', icon: 'Code' }
+    ],
+    methodology: [
+      { step: 1, title: 'Process Mining', description: 'We monitor your employees keystrokes and clicks to scientifically identify the most repetitive, time-consuming tasks ripe for automation.' },
+      { step: 2, title: 'Bot Engineering', description: 'Our developers code highly resilient RPA scripts designed to handle UI changes, pop-ups, and unexpected system errors without crashing.' },
+      { step: 3, title: 'Staging & Testing', description: 'Bots are deployed in a sandbox environment and run against thousands of edge-cases to ensure 100% accuracy before touching live data.' },
+      { step: 4, title: 'Hypercare & Maintenance', description: 'After going live, we provide 24/7 monitoring to immediately fix any bots that fail due to underlying application updates.' }
+    ],
+    businessImpact: [
+      { title: 'Zero Error Rate', description: 'Bots do not get tired, distracted, or make transcription errors. Accuracy is guaranteed at 100%.' },
+      { title: '24/7/365 Execution', description: 'Your back-office operations continue running flawlessly through the night, weekends, and holidays.' },
+      { title: 'Massive Cost Reduction', description: 'A single software bot costs a fraction of a full-time employee while doing the work of three.' },
+      { title: 'Rapid Scalability', description: 'Spin up 50 additional bots instantly to handle massive seasonal volume spikes without hiring.' }
+    ]
+  },
+  {
+    title: 'Lean Six Sigma Consulting',
+    slug: 'lean-six-sigma',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1507925922893-873105f4be8d?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
+    overview: 'Eliminate waste, reduce variance, and drastically improve the quality of your operations using data-driven Lean Six Sigma methodologies.',
+    excerpt: 'Applying data-driven methodologies to identify operational bottlenecks, eliminate waste, and optimize workflows.',
+    deliverables: [
+      { title: 'Value Stream Mapping', description: 'Visually diagramming your entire operation to find exactly where delays occur.', icon: 'Map' },
+      { title: 'Waste Elimination', description: 'Removing non-value-added steps that slow down your team and increase costs.', icon: 'Scissors' },
+      { title: 'Root Cause Analysis', description: 'Using statistical tools to find and fix the true underlying cause of operational errors.', icon: 'Search' },
+      { title: 'Process Standardization', description: 'Creating bulletproof standard operating procedures to ensure consistent quality.', icon: 'FileText' }
+    ],
+    methodology: [
+      { step: 1, title: 'Define', description: 'Clearly outline the business problem, goals, and customer requirements.' },
+      { step: 2, title: 'Measure', description: 'Collect hard data on the current performance of the process.' },
+      { step: 3, title: 'Analyze', description: 'Use statistical analysis to find the root cause of defects.' },
+      { step: 4, title: 'Improve & Control', description: 'Implement the fix and establish monitoring to ensure the problem never returns.' }
+    ],
+    businessImpact: [
+      { title: 'Increased Efficiency', description: 'Get more work done with the exact same amount of resources.' },
+      { title: 'Defect Reduction', description: 'Drastically lower the amount of errors or rework required in your operations.' },
+      { title: 'Cost Avoidance', description: 'Stop wasting money on unnecessary operational steps.' },
+      { title: 'Predictable Quality', description: 'Deliver a consistent, high-quality experience to your customers every time.' }
+    ]
+  },
+  {
+    title: 'Process Mining & Discovery',
+    slug: 'process-mining',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+    overview: 'Stop guessing how your business runs. We use advanced software to extract data logs from your IT systems to show you exactly how work is actually getting done.',
+    excerpt: 'Utilizing data logs from your ERP systems to build a visual, factual map of how work is actually being executed.',
+    deliverables: [
+      { title: 'System Integration', description: 'Connecting our mining software directly to your SAP, Oracle, or Salesforce systems.', icon: 'Network' },
+      { title: 'Process Visualization', description: 'Generating factual flowcharts showing every path a transaction takes.', icon: 'LineChart' },
+      { title: 'Friction Analysis', description: 'Identifying the exact steps where transactions get stuck or take too long.', icon: 'AlertTriangle' },
+      { title: 'Compliance Checking', description: 'Automatically flagging any transactions that violate company policy.', icon: 'ShieldCheck' }
+    ],
+    methodology: [
+      { step: 1, title: 'Data Ingestion', description: 'We pull millions of event logs from your backend IT systems.' },
+      { step: 2, title: 'Algorithmic Mapping', description: 'Software automatically draws the process map based on the raw data.' },
+      { step: 3, title: 'Variance Analysis', description: 'We compare how the process is *supposed* to work versus how it *actually* works.' },
+      { step: 4, title: 'Actionable Insights', description: 'We deliver a roadmap of specific fixes to optimize the workflow.' }
+    ],
+    businessImpact: [
+      { title: 'Factual Transparency', description: 'No more relying on employee interviews; see the undeniable truth of your operations.' },
+      { title: 'Targeted Automation', description: 'Know exactly which processes will yield the highest ROI if automated with RPA.' },
+      { title: 'Audit Automation', description: 'Instantly prove to auditors that your system controls are working.' },
+      { title: 'Reduced Cycle Times', description: 'Find and remove the hidden bottlenecks that slow down your business.' }
+    ]
+  },
+  {
+    title: 'Workflow Digitization',
+    slug: 'workflow-digitization',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80',
+    overview: 'Eliminate paper, emails, and spreadsheets by building custom, automated digital workflows that route approvals and data instantly.',
+    excerpt: 'Eliminating paper, emails, and manual spreadsheets by building custom, automated digital workflows.',
+    deliverables: [
+      { title: 'Custom Forms', description: 'Building digital intake forms to replace PDFs and paper documents.', icon: 'FileText' },
+      { title: 'Automated Routing', description: 'Designing logic that automatically sends requests to the correct approver.', icon: 'Network' },
+      { title: 'System Triggers', description: 'Workflows that automatically update your CRM or ERP once approved.', icon: 'Database' },
+      { title: 'Real-Time Tracking', description: 'Dashboards that show exactly where a request is stuck in the process.', icon: 'LineChart' }
+    ],
+    methodology: [
+      { step: 1, title: 'Requirements Gathering', description: 'We map out the current manual process and list all stakeholders involved.' },
+      { step: 2, title: 'Low-Code Development', description: 'We use modern platforms to rapidly build the digital workflow.' },
+      { step: 3, title: 'UAT Testing', description: 'Employees test the digital forms to ensure they are user-friendly.' },
+      { step: 4, title: 'Deployment & Training', description: 'We roll out the new system and train your team to stop using email for approvals.' }
+    ],
+    businessImpact: [
+      { title: 'Instant Visibility', description: 'No more "Did you get my email?" You can track every request in real-time.' },
+      { title: 'Faster Approvals', description: 'Automated reminders ensure managers approve requests on time.' },
+      { title: 'Data Accuracy', description: 'Mandatory fields in digital forms prevent incomplete submissions.' },
+      { title: 'Remote Work Enablement', description: 'Employees can submit and approve requests from anywhere in the world.' }
+    ]
+  },
+  {
+    title: 'Quality Assurance & Testing',
+    slug: 'quality-assurance',
+    category: 'process-excellence',
+    image: 'https://images.unsplash.com/photo-1516322073974-bc5bb7090b85?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80',
+    overview: 'Ensure your software, processes, and customer interactions meet the highest possible standards before they ever reach the end user.',
+    excerpt: 'Rigorous manual and automated testing to ensure your software, processes, and deliverables are flawless.',
+    deliverables: [
+      { title: 'Automated Software Testing', description: 'Writing scripts to automatically test your software for bugs on every update.', icon: 'Code' },
+      { title: 'Call Center QA', description: 'Listening to agent calls to ensure compliance and excellent customer service.', icon: 'Headset' },
+      { title: 'Process Auditing', description: 'Random sampling of back-office work to ensure standard operating procedures are followed.', icon: 'ClipboardList' },
+      { title: 'User Acceptance Testing', description: 'Managing the final testing phase before a new system goes live.', icon: 'Users' }
+    ],
+    methodology: [
+      { step: 1, title: 'Test Strategy', description: 'Defining exactly what needs to be tested and what constitutes a pass/fail.' },
+      { step: 2, title: 'Test Case Creation', description: 'Writing hundreds of specific scenarios to test every possible edge-case.' },
+      { step: 3, title: 'Execution', description: 'Our QA engineers run the tests and meticulously document every single defect.' },
+      { step: 4, title: 'Remediation', description: 'We work with your developers or operations team to fix the issues before launch.' }
+    ],
+    businessImpact: [
+      { title: 'Brand Protection', description: 'Prevent embarrassing bugs or poor service from reaching your customers.' },
+      { title: 'Lower Support Costs', description: 'Fixing issues before launch drastically reduces inbound customer support tickets.' },
+      { title: 'Faster Time-to-Market', description: 'Automated testing allows you to release updates faster without sacrificing quality.' },
+      { title: 'Compliance Assurance', description: 'Documented proof that all required regulatory checks were performed.' }
+    ]
   }
 ];
-
-// Fallback logic to generate remaining 7 services based on the list
-const additionalServiceSlugs = [
-  'data-entry', 'customer-support', 'document-management', 
-  'insurance-bpo', 'healthcare-bpo', 'logistics', 'it-helpdesk'
-];
-
-additionalServiceSlugs.forEach(slug => {
-  if (!MOCK_SERVICES.find(s => s.slug === slug)) {
-    MOCK_SERVICES.push({
-      title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-      slug: slug,
-      category: 'industry-specific',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
-      secondaryImage: 'https://images.unsplash.com/photo-1507925922893-873105f4be8d?auto=format&fit=crop&q=80',
-      overview: `End-to-end management of your ${slug.replace('-', ' ')} operations, engineered for high accuracy, rapid scalability, and strict compliance.`,
-      deliverables: [
-        { title: 'Core Processing', description: 'Executing the fundamental daily tasks required to keep this operation running smoothly.', icon: 'Settings' },
-        { title: 'Quality Assurance', description: 'Implementing multi-tiered review processes to ensure absolute accuracy.', icon: 'Shield' },
-        { title: 'Exception Handling', description: 'Managing complex edge-cases that require human judgement and specialized training.', icon: 'AlertOctagon' },
-        { title: 'Performance Reporting', description: 'Delivering real-time dashboards detailing SLA adherence and operational throughput.', icon: 'BarChart' }
-      ],
-      methodology: [
-        { step: 1, title: 'Discovery', description: 'Detailed mapping of the current operational state.' },
-        { step: 2, title: 'Design', description: 'Re-engineering the workflow for maximum efficiency.' },
-        { step: 3, title: 'Transition', description: 'Safely migrating the workload to our delivery centers.' },
-        { step: 4, title: 'Optimization', description: 'Continuous improvement through Lean Six Sigma principles.' }
-      ],
-      businessImpact: [
-        { title: 'Cost Arbitrage', description: 'Immediate reduction in operational expenditure.' },
-        { title: 'Scalability', description: 'Ability to ramp operations up or down instantly.' },
-        { title: 'Focus on Core', description: 'Allowing your team to focus on strategic growth.' },
-        { title: 'Risk Mitigation', description: 'Transferring operational risk and ensuring business continuity.' }
-      ]
-    });
-  }
-});
-
 
 const MOCK_INDUSTRIES = [
   { title: 'Healthcare', slug: 'healthcare', excerpt: 'HIPAA-compliant revenue cycle management, claims processing, and patient data administration for large hospital networks.' },
