@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { getPostBySlug, getPosts } from '@/lib/wordpress';
+import ReactMarkdown from 'react-markdown';
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -68,24 +69,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Article Content */}
           <div className="prose prose-lg md:prose-xl prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-blue-600 hover:prose-a:text-blue-700 prose-img:rounded-xl">
-            {/* 
-              Since our mock data uses a raw string with basic markdown-like structure, 
-              we'll do a simple split and render. In a real WP setup, this would be dangerouslySetInnerHTML 
-            */}
-            {post.content.split('\n\n').map((paragraph, index) => {
-              if (paragraph.startsWith('###')) {
-                return <h3 key={index} className="text-2xl mt-8 mb-4">{paragraph.replace('### ', '')}</h3>;
-              }
-              if (paragraph.startsWith('1. ') || paragraph.startsWith('2. ') || paragraph.startsWith('3. ')) {
-                return (
-                  <p key={index} className="ml-4 pl-4 border-l-4 border-blue-100">
-                    <strong>{paragraph.substring(3).split(':')[0]}</strong>: 
-                    {paragraph.substring(3).split(':').slice(1).join(':')}
-                  </p>
-                );
-              }
-              return <p key={index} className="mb-6">{paragraph}</p>;
-            })}
+            <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
 
           {/* CTA Section at bottom of post */}
