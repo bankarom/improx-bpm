@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Article Content */}
           <div className="prose prose-lg md:prose-xl prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-h2:border-l-4 prose-h2:border-blue-600 prose-h2:pl-4 prose-h2:mt-12 prose-h2:mb-6 prose-a:text-blue-600 hover:prose-a:text-blue-700 prose-img:rounded-xl">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown>{post.content.replace(/\\n/g, '\n')}</ReactMarkdown>
           </div>
 
           {/* CTA Section at bottom of post */}
