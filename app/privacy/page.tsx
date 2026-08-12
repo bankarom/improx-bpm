@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
               <div className="bg-white border border-zinc-200 rounded-2xl p-6">
                 <h4 className="font-bold text-zinc-900 mb-2">improxBPM Compliance</h4>
                 <p className="text-zinc-600">Coastal Highway, Lewes, DE 19958</p>
-                <p className="text-zinc-600 mt-1">Phone: +1 408 900 0208</p>
+                <p className="text-zinc-600 mt-1">Phone: (407) 900-0208</p>
                 <p className="text-zinc-600 mt-1">Email: info@improxtech.com</p>
               </div>
             </section>

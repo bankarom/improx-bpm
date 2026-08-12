@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="space-y-2 mb-6">
               <p className="text-sm font-semibold text-slate-200">Costal Highway, Lewes, DE 19958</p>
               <p className="text-sm font-semibold text-slate-200">
-                Phone: <a href="tel:+14089000208" className="text-slate-400 hover:text-white transition-colors">+1 408 900 0208</a>
+                Phone: <a href="tel:+14079000208" className="text-slate-400 hover:text-white transition-colors">(407) 900-0208</a>
               </p>
               <p className="text-sm font-semibold text-slate-200">
                 Email: <a href="mailto:info@improxtech.com" className="text-slate-400 hover:text-white transition-colors">info@improxtech.com</a>
