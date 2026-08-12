@@ -34,6 +34,18 @@ const SERVICES_DATA = {
 export default function ContactForm() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedService, setSelectedService] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+    }, 1500);
+  };
 
   return (
     <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-200 overflow-hidden flex flex-col md:flex-row">
@@ -50,7 +62,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <div className="text-blue-100 text-sm font-medium mb-1">Call us directly</div>
-                <div className="text-xl font-bold">(800) 555-0199</div>
+                <div className="text-xl font-bold">+1 408 900 0208</div>
               </div>
             </div>
             
@@ -60,7 +72,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <div className="text-blue-100 text-sm font-medium mb-1">Email us</div>
-                <div className="text-xl font-bold text-wrap break-all">consulting@improx.tech</div>
+                <div className="text-xl font-bold text-wrap break-all">info@improxtech.com</div>
               </div>
             </div>
             
@@ -71,6 +83,16 @@ export default function ContactForm() {
               <div>
                 <div className="text-blue-100 text-sm font-medium mb-1">Response time</div>
                 <div className="text-xl font-bold">Within 2 hours</div>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-blue-100 text-sm font-medium mb-1">Office Address</div>
+                <div className="text-base font-bold text-wrap leading-tight">Costal Highway, Lewes, DE 19958</div>
               </div>
             </div>
           </div>
@@ -100,8 +122,19 @@ export default function ContactForm() {
       </div>
 
       {/* Right Panel: The Form */}
-      <div className="p-10 md:p-12 md:w-2/3 bg-white">
-        <form className="space-y-6">
+      <div className="p-10 md:p-12 md:w-2/3 bg-white flex flex-col justify-center">
+        {isSuccess ? (
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-10 text-center animate-fade-in my-auto">
+            <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10" />
+            </div>
+            <h3 className="text-3xl font-extrabold text-green-900 mb-4">Request Received!</h3>
+            <p className="text-lg text-green-700 font-medium">
+              Thank you for reaching out to improxBPM. We have received your discovery call request and one of our experts will contact you shortly to schedule a time that works best for you.
+            </p>
+          </div>
+        ) : (
+        <form className="space-y-6" onSubmit={handleSubmit}>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -181,10 +214,17 @@ export default function ContactForm() {
           </div>
 
           <button 
-            type="button" 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 text-lg mt-4"
+            type="submit" 
+            disabled={isSubmitting}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-4 rounded-xl transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 text-lg mt-4 flex items-center justify-center"
           >
-            Schedule My Free Discovery Call
+            {isSubmitting ? (
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : null}
+            {isSubmitting ? "Submitting..." : "Schedule My Free Discovery Call"}
           </button>
           
           <p className="text-xs text-center text-zinc-500 font-medium pt-4">
@@ -192,6 +232,7 @@ export default function ContactForm() {
           </p>
 
         </form>
+        )}
       </div>
 
     </div>

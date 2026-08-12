@@ -13,9 +13,18 @@ export default function Footer() {
                 improx<span className="text-blue-500">BPM</span>
               </span>
             </Link>
-            <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-xs">
-              Intelligent business process management solutions helping organizations optimize workflows, reduce operational costs, and accelerate growth globally.
+            <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-xs mb-6">
+              Building secure, scalable digital platforms and intelligent technology systems for enterprise organisations worldwide.
             </p>
+            <div className="space-y-2 mb-6">
+              <p className="text-sm font-semibold text-slate-200">Costal Highway, Lewes, DE 19958</p>
+              <p className="text-sm font-semibold text-slate-200">
+                Phone: <a href="tel:+14089000208" className="text-slate-400 hover:text-white transition-colors">+1 408 900 0208</a>
+              </p>
+              <p className="text-sm font-semibold text-slate-200">
+                Email: <a href="mailto:info@improxtech.com" className="text-slate-400 hover:text-white transition-colors">info@improxtech.com</a>
+              </p>
+            </div>
             <div className="flex space-x-4 pt-4">
               <Link href="#" className="text-slate-400 hover:text-white transition-colors">
                 <Globe className="h-5 w-5" />
