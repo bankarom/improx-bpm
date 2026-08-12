@@ -25,9 +25,9 @@ export default function Hero({ title, subtitle, ctaPrimary, ctaSecondary }: Hero
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <div className="mb-6 flex items-center">
-              <span className="w-12 h-1 bg-blue-600 mr-4"></span>
-              <span className="text-blue-600 font-bold uppercase tracking-wider text-sm">Improx BPM</span>
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-zinc-200 shadow-sm mb-8 animate-fade-in">
+              <span className="flex h-2 w-2 rounded-full bg-blue-600"></span>
+              <span className="text-blue-600 font-bold uppercase tracking-wider text-sm">improx BPM</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight mb-6">

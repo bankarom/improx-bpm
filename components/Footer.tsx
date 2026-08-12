@@ -9,8 +9,8 @@ export default function Footer() {
           
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold tracking-tight text-white">
-                Improx<span className="text-blue-500">BPM</span>
+              <span className="font-bold text-3xl tracking-tighter text-white">
+                improx<span className="text-blue-500">BPM</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-xs">
