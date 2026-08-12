@@ -33,7 +33,7 @@ export default function PlatformsGrid() {
               Our experts are fully trained in the leading industry platforms. We integrate into your existing tech stack with zero onboarding friction and absolute data security.
             </p>
             <Link 
-              href="/contact"
+              href="/#contact"
               className="inline-flex bg-blue-600 hover:bg-blue-500 text-white font-semibold py-4 px-8 transition-colors"
             >
               Discuss Your Stack

@@ -40,7 +40,7 @@ export default function Hero({ title, subtitle, ctaPrimary, ctaSecondary }: Hero
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                href="/contact"
+                href="/#contact"
                 className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-none px-8 h-14 text-base font-semibold transition-colors"
               >
                 {ctaPrimary}

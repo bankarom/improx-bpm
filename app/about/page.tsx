@@ -203,7 +203,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/contact" 
+                href="/#contact" 
                 className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-zinc-900 transition-all bg-white rounded-xl hover:bg-zinc-100 hover:scale-105"
               >
                 Schedule an Operational Audit

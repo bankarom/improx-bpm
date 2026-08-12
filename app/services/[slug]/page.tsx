@@ -142,7 +142,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
-                  href="/contact" 
+                  href="/#contact" 
                   className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/20"
                 >
                   Schedule Consultation
