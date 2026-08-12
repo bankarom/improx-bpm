@@ -90,7 +90,7 @@ export default function Header() {
             Client Login
           </Link>
           <Link 
-            href="/contact" 
+            href="/#contact" 
             className="inline-flex items-center justify-center bg-zinc-900 hover:bg-blue-600 text-white rounded-full px-8 h-12 text-sm font-bold tracking-wide transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5"
           >
             Schedule Consultation
@@ -107,7 +107,7 @@ export default function Header() {
                 <Link href="/services" onClick={() => setIsMobileOpen(false)} className="text-lg font-bold">All Services</Link>
                 <Link href="/industries" onClick={() => setIsMobileOpen(false)} className="text-lg font-bold">All Industries</Link>
                 <Link href="/about" onClick={() => setIsMobileOpen(false)} className="text-lg font-bold">About Us</Link>
-                <Link href="/contact" onClick={() => setIsMobileOpen(false)} className="text-lg font-bold">Contact</Link>
+                <Link href="/#contact" onClick={() => setIsMobileOpen(false)} className="text-lg font-bold">Contact</Link>
              </div>
           </SheetContent>
         </Sheet>
