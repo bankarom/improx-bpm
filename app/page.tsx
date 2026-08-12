@@ -28,7 +28,7 @@ export default async function Home() {
       
       <ProcessTimeline />
       
-      <IndustriesGrid industries={industries.slice(0, 4)} />
+      <IndustriesGrid industries={industries} />
       
       <Metrics metrics={homeData.metrics} />
 

@@ -368,11 +368,163 @@ const MOCK_SERVICES: ServiceData[] = [
   }
 ];
 
-const MOCK_INDUSTRIES = [
-  { title: 'Healthcare', slug: 'healthcare', excerpt: 'HIPAA-compliant revenue cycle management, claims processing, and patient data administration for large hospital networks.' },
-  { title: 'Banking & Financial', slug: 'banking', excerpt: 'KYC/AML compliance, loan document processing, and fraud detection operations for global financial institutions.' },
-  { title: 'Retail & E-commerce', slug: 'retail', excerpt: 'Omnichannel customer support, order fulfillment tracking, and catalog data management for global retailers.' },
-  { title: 'Logistics & Supply Chain', slug: 'logistics', excerpt: 'Optimizing transport documentation, freight billing, track-and-trace operations, and vendor management to keep supply chains moving efficiently.' },
+export type IndustryData = {
+  title: string;
+  slug: string;
+  excerpt: string;
+  image: string;
+  secondaryImage: string;
+  overview: string;
+  challenges: { title: string; desc: string }[];
+  deliverables: { title: string; description: string; icon: string }[];
+  businessImpact: { title: string; description: string }[];
+};
+
+const MOCK_INDUSTRIES: IndustryData[] = [
+  { 
+    title: 'Banking, Financial Services & Insurance (BFSI)', 
+    slug: 'bfsi', 
+    excerpt: 'KYC/AML compliance, loan document processing, and fraud detection operations for global financial institutions.',
+    image: 'https://images.unsplash.com/photo-1501167783336-c63704dc17ab?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80',
+    overview: 'In the heavily regulated BFSI sector, manual processing errors do not just cost money—they invite massive regulatory fines. We engineer bulletproof, compliant back-office operations for global banks and insurers.',
+    challenges: [
+      { title: 'Regulatory Compliance Burden', desc: 'Constantly changing global KYC, AML, and FATCA regulations require massive amounts of manual auditing.' },
+      { title: 'Slow Loan Origination', desc: 'Manual underwriting and document verification cause lengthy delays in mortgage and loan approvals, frustrating customers.' },
+      { title: 'High Fraud Risk', desc: 'Inability to analyze transaction data in real-time leaves institutions vulnerable to sophisticated fraud.' }
+    ],
+    deliverables: [
+      { title: 'KYC / AML Operations', description: 'Executing rapid, highly accurate background checks and transaction monitoring.', icon: 'ShieldCheck' },
+      { title: 'Claims Processing', description: 'Digitizing and adjudicating insurance claims to accelerate payouts and flag fraudulent submissions.', icon: 'FileText' },
+      { title: 'Loan Administration', description: 'Managing the end-to-end document verification process for mortgages and commercial loans.', icon: 'Building2' },
+      { title: 'Reconciliation', description: 'Automating the daily reconciliation of thousands of complex financial transactions.', icon: 'Calculator' }
+    ],
+    businessImpact: [
+      { title: 'Zero Compliance Breaches', description: 'Strict adherence to all global banking regulations, eliminating the risk of multi-million dollar fines.' },
+      { title: 'Faster Loan Approvals', description: 'Reduce the time-to-decision for mortgages and loans by up to 40%.' },
+      { title: 'Reduced Operational Cost', description: 'Lower the cost per transaction through automation and offshore talent arbitrage.' }
+    ]
+  },
+  { 
+    title: 'Healthcare & Life Sciences', 
+    slug: 'healthcare', 
+    excerpt: 'HIPAA-compliant revenue cycle management, medical billing, and patient data administration for large hospital networks.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1551076805-e1869043e560?auto=format&fit=crop&q=80',
+    overview: 'Hospitals and clinics are bleeding revenue due to complex billing requirements and denied claims. We manage the entire Revenue Cycle Management (RCM) process with strict HIPAA compliance.',
+    challenges: [
+      { title: 'High Claim Denial Rates', desc: 'Minor coding errors leading to insurance claim denials, trapping millions of dollars in uncollected revenue.' },
+      { title: 'Patient Data Fragmentation', desc: 'Critical patient information is scattered across incompatible Electronic Health Records (EHR) systems.' },
+      { title: 'Administrative Burnout', desc: 'Nurses and doctors spending hours doing data entry instead of providing patient care.' }
+    ],
+    deliverables: [
+      { title: 'Revenue Cycle Management', description: 'End-to-end management of medical coding, billing, and aggressive AR follow-up.', icon: 'LineChart' },
+      { title: 'Patient Scheduling', description: 'Omnichannel contact center support to manage appointments and patient inquiries.', icon: 'Headset' },
+      { title: 'Claims Adjudication', description: 'Rapidly processing health insurance claims with automated fraud detection.', icon: 'ShieldCheck' },
+      { title: 'Clinical Trial Data', description: 'Highly accurate data entry and management for pharmaceutical research.', icon: 'Database' }
+    ],
+    businessImpact: [
+      { title: 'Reduced Claim Denials', description: 'Increase first-pass acceptance rates by utilizing certified medical coders and automated scrubbers.' },
+      { title: 'Improved Cash Flow', description: 'Accelerate the collection of outstanding patient and insurance balances.' },
+      { title: 'Enhanced Patient Experience', description: 'Allow your medical staff to focus entirely on patient care, not paperwork.' }
+    ]
+  },
+  { 
+    title: 'Technology & SaaS', 
+    slug: 'technology-saas', 
+    excerpt: 'Tier 1/2 technical helpdesk, customer success, subscription billing, and platform moderation for fast-growing software companies.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80',
+    overview: 'Fast-growing software companies cannot afford to let their expensive engineers handle password resets and basic billing queries. We build scalable, global support operations for tech firms.',
+    challenges: [
+      { title: 'Engineer Distraction', desc: 'Highly paid developers spending their time fixing basic user errors instead of building new product features.' },
+      { title: 'Global Support Demands', desc: 'SaaS companies have users in every timezone, making 24/7 in-house support incredibly expensive.' },
+      { title: 'High Customer Churn', desc: 'Users canceling subscriptions because they cannot get immediate help when the software is confusing.' }
+    ],
+    deliverables: [
+      { title: 'Technical Helpdesk (Tier 1 & 2)', description: 'Providing 24/7 troubleshooting for software bugs, API integrations, and access issues.', icon: 'MonitorSmartphone' },
+      { title: 'Customer Success (CSM)', description: 'Proactive outreach to ensure clients are fully utilizing the platform to prevent churn.', icon: 'Smile' },
+      { title: 'Subscription Billing', description: 'Managing complex recurring revenue, upgrades, downgrades, and failed payments.', icon: 'CreditCard' },
+      { title: 'Content Moderation', description: 'Reviewing user-generated content to ensure platform safety and compliance.', icon: 'ShieldCheck' }
+    ],
+    businessImpact: [
+      { title: 'Reduced Churn', description: 'Keep users subscribed longer by providing immediate, highly technical support when they get stuck.' },
+      { title: 'Engineer Focus', description: 'Protect your engineering team’s time by deflecting 80% of incoming tickets.' },
+      { title: 'Scalable Growth', description: 'Easily handle massive spikes in support tickets after a new product launch.' }
+    ]
+  },
+  { 
+    title: 'Retail & E-commerce', 
+    slug: 'retail-ecommerce', 
+    excerpt: 'Omnichannel customer support, order fulfillment tracking, and catalog data management for global retailers.',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80',
+    overview: 'In the hyper-competitive world of retail, one bad customer service experience means losing a customer forever. We deliver flawless omnichannel support and order management at a massive scale.',
+    challenges: [
+      { title: 'Massive Seasonal Spikes', desc: 'The inability to handle 10x ticket volumes during Black Friday or holiday shopping seasons.' },
+      { title: 'Returns Friction', desc: 'Slow processing of returns and refunds leading to angry customers and terrible online reviews.' },
+      { title: 'Catalog Inconsistencies', desc: 'Messy product data and missing images leading to abandoned shopping carts.' }
+    ],
+    deliverables: [
+      { title: 'Omnichannel CS', description: 'Providing instant support via live chat, email, phone, and social media platforms.', icon: 'Headset' },
+      { title: 'Order & Returns Management', description: 'Tracking lost packages, processing RMAs, and issuing rapid refunds.', icon: 'ShoppingCart' },
+      { title: 'Catalog Management', description: 'Standardizing SKUs, writing SEO-optimized product descriptions, and uploading images.', icon: 'Tags' },
+      { title: 'Fraud Prevention', description: 'Reviewing high-risk orders to prevent chargebacks and inventory loss.', icon: 'ShieldCheck' }
+    ],
+    businessImpact: [
+      { title: 'Increased Brand Loyalty', description: 'Turn angry customers into brand advocates through rapid, empathetic problem resolution.' },
+      { title: 'Holiday Scalability', description: 'We instantly ramp up our agent headcount to handle your Q4 volume spikes seamlessly.' },
+      { title: 'Higher Conversion Rates', description: 'Clean, accurate product catalogs drastically reduce cart abandonment.' }
+    ]
+  },
+  { 
+    title: 'Logistics & Supply Chain', 
+    slug: 'logistics-supply-chain', 
+    excerpt: 'Optimizing transport documentation, freight billing, track-and-trace operations, and vendor management to keep supply chains moving efficiently.',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c66363?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80',
+    overview: 'Global supply chains are paralyzed by archaic, paper-based processes. We digitize and automate transport documentation to ensure goods move without administrative delays.',
+    challenges: [
+      { title: 'Paper-Based Delays', desc: 'Trucks sitting idle at borders because bills of lading and customs documents are missing or incorrect.' },
+      { title: 'Freight Audit Errors', desc: 'Companies overpaying carriers by millions of dollars due to complex, incorrect freight invoices.' },
+      { title: 'Visibility Blackouts', desc: 'Inability to tell customers exactly where their shipment is at any given moment.' }
+    ],
+    deliverables: [
+      { title: 'Freight Audit & Payment', description: 'Meticulously reviewing carrier invoices against contracted rates to prevent overpayment.', icon: 'Calculator' },
+      { title: 'Track and Trace', description: 'Proactively monitoring shipments and updating customers on delays before they complain.', icon: 'Map' },
+      { title: 'Customs Documentation', description: 'Ensuring all international shipping paperwork is 100% accurate to prevent border delays.', icon: 'FileText' },
+      { title: 'Vendor Onboarding', description: 'Managing the compliance and setup of new carriers and 3PL partners.', icon: 'Truck' }
+    ],
+    businessImpact: [
+      { title: 'Recovered Margin', description: 'Save millions by catching and rejecting inaccurate carrier freight bills.' },
+      { title: 'Faster Transit Times', description: 'Eliminate administrative bottlenecks that keep shipments sitting in warehouses.' },
+      { title: 'Improved Customer Trust', description: 'Provide your clients with proactive, accurate updates on their critical shipments.' }
+    ]
+  },
+  { 
+    title: 'Telecommunications', 
+    slug: 'telecommunications', 
+    excerpt: 'Billing dispute resolution, customer retention, churn management, and contract administration for global telcos.',
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&q=80',
+    overview: 'Telcos operate in a saturated market where customers will switch providers over a single billing error. We build retention engines that keep your subscribers happy and loyal.',
+    challenges: [
+      { title: 'High Subscriber Churn', desc: 'Customers jumping to competitors due to long hold times and unresolved network issues.' },
+      { title: 'Complex Billing Disputes', desc: 'Massive call volumes driven entirely by confusing invoices and unexpected roaming charges.' },
+      { title: 'Back-Office Bottlenecks', desc: 'Slow processing of new contracts and number porting frustrating new customers.' }
+    ],
+    deliverables: [
+      { title: 'Churn Management', description: 'Deploying highly trained retention specialists to save accounts that request cancellation.', icon: 'Smile' },
+      { title: 'Billing Support', description: 'Resolving complex invoice disputes and managing payment collections.', icon: 'CreditCard' },
+      { title: 'Network Support', description: 'Tier 1 troubleshooting for internet, mobile, and cable connectivity issues.', icon: 'RadioTower' },
+      { title: 'Order Provisioning', description: 'Rapidly processing new account setups, upgrades, and number transfers in the backend.', icon: 'Database' }
+    ],
+    businessImpact: [
+      { title: 'Increased CLV', description: 'Boost Customer Lifetime Value by drastically reducing subscriber churn rates.' },
+      { title: 'Lower Cost to Serve', description: 'Offload high-volume, repetitive billing inquiries to cost-effective global delivery centers.' },
+      { title: 'Faster Activation', description: 'Ensure new customers get their services turned on immediately without administrative delays.' }
+    ]
+  }
 ];
 
 const MOCK_HOME_PAGE = {
@@ -402,7 +554,7 @@ export async function getServiceBySlug(slug: string): Promise<ServiceData | unde
   return MOCK_SERVICES.find((s) => s.slug === slug);
 }
 
-export async function getIndustries() {
+export async function getIndustries(): Promise<IndustryData[]> {
   return MOCK_INDUSTRIES;
 }
 

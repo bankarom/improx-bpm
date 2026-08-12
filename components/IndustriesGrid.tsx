@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Building2, ShieldCheck, Stethoscope, Truck } from "lucide-react";
+import { ArrowRight, Building2, ShieldCheck, Stethoscope, Truck, MonitorSmartphone, ShoppingCart, RadioTower } from "lucide-react";
 import Link from "next/link";
 
 interface IndustryProps {
@@ -13,9 +13,11 @@ interface IndustryProps {
 const getIcon = (slug: string) => {
   switch (slug) {
     case 'healthcare': return <Stethoscope className="h-8 w-8 text-blue-400" />;
-    case 'banking': return <ShieldCheck className="h-8 w-8 text-blue-400" />;
-    case 'technology': return <Building2 className="h-8 w-8 text-blue-400" />;
-    case 'logistics': return <Truck className="h-8 w-8 text-blue-400" />;
+    case 'bfsi': return <ShieldCheck className="h-8 w-8 text-blue-400" />;
+    case 'technology-saas': return <MonitorSmartphone className="h-8 w-8 text-blue-400" />;
+    case 'retail-ecommerce': return <ShoppingCart className="h-8 w-8 text-blue-400" />;
+    case 'logistics-supply-chain': return <Truck className="h-8 w-8 text-blue-400" />;
+    case 'telecommunications': return <RadioTower className="h-8 w-8 text-blue-400" />;
     default: return <Building2 className="h-8 w-8 text-blue-400" />;
   }
 };
