@@ -28,7 +28,7 @@ const IconMap: Record<string, React.ElementType> = {
   PieChart, GitMerge, Scissors, Zap, Smile, GraduationCap, Landmark, BarChart
 };
 
-// Simplified, highly relevant pain points using standard global business English
+// Simplified, highly relevant pain points
 function getDetailedPainPoints(slug: string) {
   const defaultPain = [
     { title: "Manual Processing Costs", desc: "Core staff spending too many hours on repetitive administrative tasks instead of focusing on business growth." },
@@ -71,6 +71,35 @@ function getDetailedPainPoints(slug: string) {
   }
 }
 
+// Dynamic FAQs based on Service Slug
+function getServiceFAQs(slug: string) {
+  const defaultFAQs = [
+    { question: "How quickly can you implement this service?", answer: "Implementation timelines vary based on complexity, but most of our standard operational transitions take between 4 to 8 weeks from initial discovery to go-live." },
+    { question: "How do you ensure data security and confidentiality?", answer: "We are ISO 27001 certified and strictly adhere to global data privacy laws like GDPR and HIPAA. All client data is processed in highly secure, restricted-access environments." },
+    { question: "Will we lose control of our operations?", answer: "Absolutely not. You maintain complete control and visibility through real-time performance dashboards, daily reporting, and regular governance meetings with your dedicated account manager." },
+    { question: "How is pricing structured?", answer: "We offer flexible pricing models, including Full-Time Equivalent (FTE) rates, transaction-based pricing, and fixed-fee managed services, depending on what best aligns with your business goals." }
+  ];
+
+  switch(slug) {
+    case 'rpa':
+      return [
+        { question: "Do we need to buy expensive software licenses for RPA?", answer: "It depends on the platform you choose. We partner with industry leaders like UiPath and Automation Anywhere, but we can also build custom bots using open-source frameworks to minimize licensing costs." },
+        { question: "What happens if our target application's UI changes?", answer: "UI changes can cause bots to fail. That is why our Hypercare team provides 24/7 monitoring. If a bot fails due to an application update, we immediately pause the process, fix the code, and redeploy it." },
+        { question: "Can bots read scanned documents or PDFs?", answer: "Yes, we integrate our RPA solutions with advanced Optical Character Recognition (OCR) and Cognitive AI tools that can accurately extract data from unstructured documents and invoices." },
+        ...defaultFAQs.slice(1,3)
+      ];
+    case 'finance-accounting':
+      return [
+        { question: "Do you integrate with our existing ERP?", answer: "Yes, our teams are highly proficient in all major enterprise ERPs, including SAP, Oracle, NetSuite, and Microsoft Dynamics. We work directly within your systems—no data migration required." },
+        { question: "How do you handle local tax compliances for different countries?", answer: "We employ regional finance experts and utilize localized tax compliance software to ensure that all transactional processing strictly adheres to the specific legal and tax requirements of that jurisdiction." },
+        ...defaultFAQs.slice(1,3)
+      ];
+    default:
+      return defaultFAQs;
+  }
+}
+
+
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = await getServiceBySlug(slug);
@@ -81,11 +110,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   }
 
   const painPoints = getDetailedPainPoints(slug);
+  const faqs = getServiceFAQs(slug);
 
   return (
     <div className="bg-white selection:bg-blue-100 font-sans text-zinc-900">
       
-      {/* 1. CLEAN ENTERPRISE HERO (Split Layout + Fixed Typography) */}
+      {/* 1. CLEAN ENTERPRISE HERO */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden border-b border-zinc-100 bg-zinc-50">
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
         
@@ -125,7 +155,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
 
-            {/* Right: High Quality Image */}
+            {/* Right: High Quality Image (Primary) */}
             <div className="relative">
               <div className="absolute inset-0 bg-blue-600 rounded-[2.5rem] translate-x-4 translate-y-4 opacity-10 blur-lg"></div>
               <div className="relative h-[400px] lg:h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white">
@@ -143,7 +173,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 2. THE CHALLENGE (Clear, Simple Global Language) */}
+      {/* 2. THE CHALLENGE */}
       <section id="challenge" className="relative bg-[#0B1120] text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 py-24 md:py-32">
@@ -180,7 +210,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 3. CORE CAPABILITIES (Standardized Uniform Grid) */}
+      {/* 3. CORE CAPABILITIES (Uniform Grid) */}
       <section className="py-24 md:py-32 bg-zinc-50 border-b border-zinc-200">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -191,7 +221,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </p>
           </div>
           
-          {/* Uniform Grid - ALL CARDS EXACTLY THE SAME SIZE */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {service.deliverables.map((item, idx) => {
               const Icon = IconMap[item.icon] || Database;
@@ -220,8 +249,27 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      {/* NEW: OUR APPROACH (Text-Heavy Descriptive Section) */}
+      <section className="py-24 bg-white border-b border-zinc-200">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl text-center">
+          <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Our Approach</span>
+          <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight mb-10">Why Choose Improx BPM?</h2>
+          <div className="space-y-6 text-lg md:text-xl text-zinc-600 leading-relaxed font-medium">
+            <p>
+              Unlike traditional BPO vendors that simply throw cheap labor at broken processes, Improx BPM engineers permanent operational superiority. We believe that technology and human intelligence must work together seamlessly. 
+            </p>
+            <p>
+              Before we take over any operation, our Lean Six Sigma certified analysts conduct a rigorous forensic audit of your current state. We identify bottlenecks, eliminate redundancies, and standardize workflows. Only then do we overlay advanced automation, RPA, and dedicated offshore talent to execute the process at scale.
+            </p>
+            <p>
+              The result is a highly agile, 24/7 delivery model that guarantees 99.9% accuracy, ensures strict compliance, and typically reduces our clients' operational expenditure by over 40% within the first year.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 4. HOW WE WORK (Methodology) */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden border-b border-zinc-200">
+      <section className="py-24 md:py-32 bg-zinc-50 relative overflow-hidden border-b border-zinc-200">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-24">
             <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Methodology</span>
@@ -229,8 +277,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           
           <div className="max-w-5xl mx-auto relative">
-            {/* The Animated Center Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-zinc-100 md:-translate-x-1/2 rounded-full overflow-hidden">
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-zinc-200 md:-translate-x-1/2 rounded-full overflow-hidden">
               <div className="w-full h-1/3 bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-pulse" style={{animationDuration: '3s'}}></div>
             </div>
             
@@ -240,12 +287,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 return (
                   <div key={idx} className={`relative flex flex-col md:flex-row items-center group ${isEven ? 'md:flex-row-reverse' : ''}`}>
                     
-                    {/* The Animated Node */}
-                    <div className="absolute left-8 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-zinc-200 group-hover:border-blue-500 shadow-lg group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform -translate-x-[15px] md:-translate-x-1/2 z-10 transition-all duration-500 flex items-center justify-center">
+                    <div className="absolute left-8 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-zinc-300 group-hover:border-blue-500 shadow-lg group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform -translate-x-[15px] md:-translate-x-1/2 z-10 transition-all duration-500 flex items-center justify-center">
                       <div className="w-2 h-2 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-500 delay-100"></div>
                     </div>
                     
-                    {/* Content Box */}
                     <div className={`ml-20 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
                       <div className="bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm group-hover:shadow-2xl group-hover:border-blue-200 group-hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
                         
@@ -266,7 +311,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 5. BUSINESS IMPACT */}
+      {/* 5. BUSINESS IMPACT (Using Secondary Image!) */}
       <section className="py-24 md:py-32 bg-[#050505] text-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-7xl mx-auto">
@@ -290,9 +335,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
             
+            {/* Using the newly added secondaryImage to prevent duplicates */}
             <div className="relative h-[500px] lg:h-[800px] w-full rounded-[2.5rem] overflow-hidden">
               <Image 
-                src={service.image} 
+                src={service.secondaryImage || service.image} 
                 alt={`${service.title} Impact`} 
                 fill 
                 className="object-cover opacity-60 hover:opacity-80 transition-opacity duration-700"
@@ -300,6 +346,30 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/50 to-transparent"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: FAQ SECTION */}
+      <section className="py-24 bg-white border-b border-zinc-200">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Knowledge Base</span>
+            <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">Frequently Asked Questions</h2>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-zinc-50 border border-zinc-200 p-8 rounded-2xl">
+                <h3 className="text-xl font-bold text-zinc-900 mb-4 flex items-start">
+                  <span className="text-blue-600 mr-4">Q.</span> 
+                  {faq.question}
+                </h3>
+                <p className="text-zinc-600 leading-relaxed font-medium pl-8">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
