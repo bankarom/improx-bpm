@@ -277,3 +277,7 @@ const MOCK_POSTS = [
 export async function getPosts() {
   return MOCK_POSTS;
 }
+
+export async function getPostBySlug(slug: string) {
+  return MOCK_POSTS.find((p) => p.slug === slug);
+}
