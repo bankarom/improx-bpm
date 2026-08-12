@@ -86,9 +86,7 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-6 relative z-10">
-          <Link href="/login" className="text-sm font-bold text-zinc-500 hover:text-blue-600 transition-colors">
-            Client Login
-          </Link>
+
           <Link 
             href="/#contact" 
             className="inline-flex items-center justify-center bg-zinc-900 hover:bg-blue-600 text-white rounded-full px-8 h-12 text-sm font-bold tracking-wide transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5"
