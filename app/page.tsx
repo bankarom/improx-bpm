@@ -28,6 +28,30 @@ export default async function Home() {
 
       <ServicesGrid services={services} />
       
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-zinc-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="text-blue-400 font-bold text-sm tracking-[0.2em] uppercase block mb-4">Why Choose Improx BPM</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
+              Engineering Permanent Operational Superiority
+            </h2>
+            <div className="space-y-6 text-lg md:text-xl text-zinc-300 leading-relaxed font-medium text-left md:text-center">
+              <p>
+                In today's hyper-competitive global market, traditional Business Process Outsourcing (BPO) is no longer enough. Simply handing off broken, inefficient processes to a cheaper offshore labor pool only scales your inefficiencies. At Improx BPM, we completely reject this outdated model. We don't just process your work—we forensically analyze, optimize, and automate it.
+              </p>
+              <p>
+                Our approach combines top-tier offshore talent with Lean Six Sigma methodologies and enterprise-grade automation technology. Before we take over any workflow, our specialized teams map out your entire operational lifecycle to identify costly bottlenecks and eliminate redundant tasks. Whether it's cutting your month-end financial close down to three days, automating high-volume accounts payable, or building a global 24/7 HR shared services center, we engineer processes that are flawless by design.
+              </p>
+              <p>
+                By partnering with us, you are not just reducing operational expenditures by 40% to 60%. You are actively transforming your back-office from a sluggish cost center into a highly agile, data-driven engine that empowers your frontline teams to focus entirely on revenue growth and customer satisfaction. Choose Improx BPM to build a resilient, scalable foundation capable of weathering any industry challenge.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ProcessTimeline />
       
       <IndustriesGrid industries={industries} />
