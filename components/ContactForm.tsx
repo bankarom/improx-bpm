@@ -139,18 +139,18 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">First Name <span className="text-red-500">*</span></label>
-              <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Last Name <span className="text-red-500">*</span></label>
-              <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Work Email <span className="text-red-500">*</span></label>
-              <input type="email" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="email" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Phone Number <span className="text-red-500">*</span></label>
@@ -160,20 +160,21 @@ export default function ContactForm() {
                     <option key={country.code} value={country.code}>{country.code}</option>
                   ))}
                 </select>
-                <input type="tel" className="w-full px-4 py-3 rounded-r-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+                <input type="tel" required minLength={7} className="w-full px-4 py-3 rounded-r-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
               </div>
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-bold text-zinc-900 mb-2">Company Name <span className="text-red-500">*</span></label>
-            <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
           </div>
 
           {/* Cascading Dropdowns */}
           <div>
             <label className="block text-sm font-bold text-zinc-900 mb-2">Primary Area of Interest <span className="text-red-500">*</span></label>
             <select 
+              required 
               className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all appearance-none"
               value={selectedCategory}
               onChange={(e) => {
