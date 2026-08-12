@@ -2,13 +2,13 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  ArrowRight, XCircle, Calculator, Database, LineChart, 
+  ArrowRight, Calculator, Database, LineChart, 
   FileText, CreditCard, BookOpen, BarChart3, Users, ClipboardList, HeartPulse, 
   Headset, Search, Briefcase, ShoppingCart, Keyboard, Scan, Archive, ShieldCheck, 
   Eraser, Network, Tags, Shield, Stethoscope, Truck, Building2, Activity, Map, 
   AlertTriangle, Box, Play, Target, Bot, BrainCircuit, LayoutDashboard, Code, 
   TrendingUp, AlertOctagon, PieChart, GitMerge, Scissors, Zap, Smile, 
-  GraduationCap, Landmark, BarChart, Zap as Lightning
+  GraduationCap, Landmark, BarChart, ChevronDown, CheckCircle
 } from 'lucide-react';
 import { getServiceBySlug, getServices, getPosts } from '@/lib/wordpress';
 
@@ -28,36 +28,29 @@ const IconMap: Record<string, React.ElementType> = {
   PieChart, GitMerge, Scissors, Zap, Smile, GraduationCap, Landmark, BarChart
 };
 
-// Helper function to generate tailored pain points based on the service slug
-function getPainPoints(slug: string) {
+// Advanced dynamic pain points tailored to each service with high detail
+function getDetailedPainPoints(slug: string) {
   const defaultPain = [
-    "Core staff spending hours on non-revenue-generating administrative tasks",
-    "High error rates leading to compliance audits and financial penalties",
-    "Disparate, siloed data systems causing operational bottlenecks",
-    "Inability to scale operations rapidly during high-volume periods"
+    { title: "Non-Value Added Overhead", desc: "Core staff spending exorbitant hours on non-revenue-generating administrative tasks instead of strategic execution." },
+    { title: "Compliance Degradation", desc: "High error rates in manual processing leading to failed compliance audits, severe financial penalties, and loss of client trust." },
+    { title: "Siloed Data Architecture", desc: "Disparate, non-communicating systems causing massive operational bottlenecks and completely obscuring enterprise-wide visibility." },
+    { title: "Inelastic Scaling", desc: "Complete inability to scale operations rapidly during high-volume periods without linearly increasing expensive human headcount." }
   ];
   
   switch(slug) {
     case 'finance-accounting':
       return [
-        "Invoices delayed in approval workflows causing missed early-payment discounts",
-        "High Days Sales Outstanding (DSO) creating severe cash flow bottlenecks",
-        "Month-end close takes weeks due to manual general ledger reconciliation",
-        "Audit anxiety due to scattered financial documentation and poor compliance"
+        { title: "Working Capital Trapped", desc: "Invoices delayed in convoluted, manual approval workflows causing entirely missed early-payment discounts and vendor friction." },
+        { title: "Cash Flow Asphyxiation", desc: "High Days Sales Outstanding (DSO) creating severe cash flow bottlenecks that prevent strategic corporate reinvestment." },
+        { title: "Month-End Paralysis", desc: "Month-end close takes weeks instead of days due to manual general ledger reconciliation and fragmented data sources." },
+        { title: "Audit Anxiety", desc: "Constant fear of regulatory audits due to scattered financial documentation, lack of clear audit trails, and poor compliance standards." }
       ];
     case 'human-resources':
       return [
-        "HR Business Partners bogged down by Tier-1 employee queries and paperwork",
-        "Global payroll errors leading to disgruntled employees and tax penalties",
-        "Slow onboarding processes causing high candidate drop-off rates",
-        "Scattered employee records across multiple non-integrated systems"
-      ];
-    case 'rpa':
-      return [
-        "Human talent wasted on repetitive swivel-chair data entry",
-        "Unacceptable error rates in high-volume transactional processing",
-        "Massive backlogs building up due to inadequate staffing levels",
-        "Legacy systems that cannot communicate with modern APIs"
+        { title: "Strategic Paralysis", desc: "Senior HR Business Partners bogged down by Tier-1 employee queries and mundane paperwork instead of focusing on culture and talent." },
+        { title: "Global Payroll Liability", desc: "Intolerable payroll errors across fragmented global jurisdictions leading to disgruntled employees and immediate tax penalties." },
+        { title: "Candidate Abandonment", desc: "Slow, manual onboarding processes causing high drop-off rates for top-tier candidates who expect a modern, seamless digital experience." },
+        { title: "Data Fragmentation", desc: "Scattered, unprotected employee records across multiple non-integrated systems severely violating modern data privacy laws." }
       ];
     default:
       return defaultPain;
@@ -73,107 +66,124 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  const painPoints = getPainPoints(slug);
+  const painPoints = getDetailedPainPoints(slug);
 
   return (
-    <div className="bg-white selection:bg-blue-100 font-sans">
+    <div className="bg-[#050505] selection:bg-blue-500/30 font-sans text-zinc-300">
       
-      {/* SECTION 1: CLEAN HERO */}
-      <section className="pt-20 pb-16 md:pt-32 md:pb-24 border-b border-zinc-100 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl text-center relative z-10">
-          
-          <div className="inline-flex items-center gap-2 mb-6 bg-zinc-100 px-4 py-2 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span className="text-zinc-600 font-bold text-xs tracking-[0.15em] uppercase">
+      {/* 1. GLASSMORPHIC MESH HERO */}
+      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden border-b border-white/5">
+        {/* Deep Gradient Mesh Background */}
+        <div className="absolute inset-0 bg-[#050505]"></div>
+        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-5xl mt-20">
+          <div className="inline-flex items-center gap-2 mb-8 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+            <span className="text-zinc-300 font-medium text-xs tracking-[0.2em] uppercase">
               {service.category.replace('-', ' ')}
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-zinc-900 leading-[1.05] mb-8 tracking-tighter">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-zinc-500 leading-[1.1] mb-10 tracking-tighter">
             {service.title}
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-500 leading-relaxed max-w-3xl mx-auto mb-10 font-medium">
-            {service.excerpt}
+          <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-4xl mx-auto mb-14 font-light">
+            {service.overview}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/20"
+              className="inline-flex items-center justify-center px-10 py-5 text-base font-bold text-white transition-all bg-blue-600 rounded-full hover:bg-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:-translate-y-1"
             >
-              Book Consultation
+              Initiate Transformation
+            </Link>
+            <Link 
+              href="#reality" 
+              className="inline-flex items-center justify-center text-zinc-400 hover:text-white transition-colors group"
+            >
+              Explore Architecture <ChevronDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: THE CHALLENGE (Admin Assist Style) */}
-      <section className="py-24 bg-white">
+      {/* 2. STICKY-SCROLL: THE OPERATIONAL REALITY */}
+      <section id="reality" className="relative bg-zinc-950">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight mb-6">Built for High-Volume Excellence</h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              {service.overview}
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
-            {/* Left: Pain Points Box */}
-            <div className="bg-zinc-50 rounded-3xl p-8 md:p-12 border border-zinc-100 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-zinc-900 mb-8">
-                Operational Friction is Disrupting Your Office
-              </h3>
-              <div className="space-y-6">
-                {painPoints.map((pain, idx) => (
-                  <div key={idx} className="flex gap-4 items-start">
-                    <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
-                    <p className="text-zinc-700 font-medium leading-relaxed">{pain}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 py-32">
             
-            {/* Right: Cinematic Image with Quote */}
-            <div className="relative h-[500px] lg:h-auto w-full rounded-3xl overflow-hidden shadow-2xl">
-              <Image 
-                src={service.image} 
-                alt={`${service.title} Operations`} 
-                fill 
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-transparent"></div>
-              
-              <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
-                <p className="text-white text-xl md:text-2xl font-bold leading-snug">
-                  "Stop letting operational friction dictate your growth. We provide the leverage you need to scale effortlessly."
+            {/* Sticky Left Column */}
+            <div className="lg:w-1/3">
+              <div className="sticky top-32">
+                <span className="text-blue-500 font-bold text-xs tracking-[0.2em] uppercase block mb-4">The Challenge</span>
+                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">
+                  The Operational Reality You Are Facing.
+                </h2>
+                <p className="text-zinc-400 text-lg leading-relaxed">
+                  Enterprise growth is consistently bottlenecked by legacy friction. We identify the exact failure points in your architecture before we rewrite them.
                 </p>
               </div>
             </div>
+
+            {/* Scrolling Right Column (Highly Detailed Pain Points) */}
+            <div className="lg:w-2/3 space-y-12">
+              {painPoints.map((pain, idx) => (
+                <div key={idx} className="bg-white/5 border border-white/5 p-10 md:p-14 rounded-[2.5rem] backdrop-blur-sm hover:bg-white/10 transition-colors duration-500">
+                  <div className="text-blue-500/30 text-8xl font-black absolute top-6 right-10 pointer-events-none">
+                    0{idx + 1}
+                  </div>
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-bold text-white mb-6 pr-16">{pain.title}</h3>
+                    <p className="text-xl text-zinc-400 leading-relaxed font-light">{pain.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: CORE SOLUTIONS (Horizontal Cards) */}
-      <section className="py-24 bg-zinc-50 border-y border-zinc-100">
+      {/* 3. BENTO BOX: CORE CAPABILITIES */}
+      <section className="py-32 bg-[#050505] border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">Core Execution Capabilities</h2>
+          <div className="text-center max-w-4xl mx-auto mb-24">
+            <span className="text-blue-500 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Architecture</span>
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight mb-8">Bespoke Execution Modules</h2>
+            <p className="text-xl text-zinc-400 font-light leading-relaxed">
+              We do not provide off-the-shelf templates. Every capability is precision-engineered to integrate flawlessly into your existing enterprise ecosystem.
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {service.deliverables.slice(0, 3).map((item, idx) => {
+          {/* Asymmetrical Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[320px]">
+            {service.deliverables.map((item, idx) => {
               const Icon = IconMap[item.icon] || Database;
+              // Create asymmetrical sizes
+              const isLarge = idx === 0 || idx === 3;
+              
               return (
-                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
+                <div 
+                  key={idx} 
+                  className={`relative overflow-hidden bg-gradient-to-br from-zinc-900 to-zinc-950 border border-white/5 p-10 rounded-[2rem] group hover:border-blue-500/30 transition-all duration-700 flex flex-col justify-between ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-all duration-700 translate-x-1/3 -translate-y-1/3"></div>
+                  
+                  <div className="w-16 h-16 bg-white/5 border border-white/10 text-white rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-500 relative z-10">
                     <Icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-4">{item.title}</h3>
-                  <p className="text-zinc-500 leading-relaxed text-sm">
-                    {item.description}
-                  </p>
+                  
+                  <div className="relative z-10 mt-auto">
+                    <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                    <p className="text-zinc-400 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -181,63 +191,76 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* SECTION 4: STRATEGIC PARTNERSHIP (Dark Theme) */}
-      <section className="py-32 bg-[#0B1120] text-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">Why Choose Improx BPM</h2>
-            <p className="text-xl text-zinc-400">We don't just provide remote workers; we provide strategic operational partners.</p>
+      {/* 4. GLOWING VERTICAL PIPELINE: METHODOLOGY */}
+      <section className="py-32 bg-zinc-950 relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center max-w-4xl mx-auto mb-32">
+            <span className="text-blue-500 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Deployment</span>
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight">The Integration Pipeline</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.businessImpact.map((impact, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors">
-                <Lightning className="w-8 h-8 text-blue-400 mb-6" />
-                <h3 className="text-xl font-bold mb-4">{impact.title}</h3>
-                <p className="text-zinc-400 leading-relaxed text-sm">
-                  {impact.description}
-                </p>
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto relative">
+            {/* The Glowing Center Line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-900 via-blue-500 to-zinc-900 md:-translate-x-1/2"></div>
+            
+            <div className="space-y-24">
+              {service.methodology.map((method, idx) => {
+                const isEven = idx % 2 === 0;
+                return (
+                  <div key={idx} className={`relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                    
+                    {/* The Glowing Node */}
+                    <div className="absolute left-8 md:left-1/2 w-6 h-6 rounded-full bg-zinc-950 border-4 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.8)] transform -translate-x-[11px] md:-translate-x-1/2 mt-2 z-10"></div>
+                    
+                    {/* Content Box */}
+                    <div className={`ml-20 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
+                      <span className="text-blue-500 font-black text-xl mb-2 block">Phase {method.step}</span>
+                      <h3 className="text-3xl font-bold text-white mb-6">{method.title}</h3>
+                      <p className="text-lg text-zinc-400 leading-relaxed font-light">
+                        {method.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: LATEST INSIGHTS (Blog Fallback) */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-zinc-900 tracking-tight">Latest Insights</h2>
-            <Link href="/blog" className="hidden md:flex items-center text-blue-600 font-bold hover:text-blue-700 transition-colors">
-              View All Posts <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col h-full border border-zinc-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-zinc-200/50 hover:-translate-y-1 transition-all duration-300">
-                <div className="relative h-64 w-full overflow-hidden">
-                  <Image 
-                    src={post.image} 
-                    alt={post.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-8 flex flex-col flex-grow bg-white">
-                  <span className="text-blue-600 font-bold text-xs uppercase tracking-[0.1em] mb-4">{post.category}</span>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-4 leading-snug group-hover:text-blue-600 transition-colors">
-                    {post.title}
-                  </h3>
-                  <div className="mt-auto flex items-center justify-between text-zinc-500 text-sm font-medium">
-                    <span>{post.date}</span>
-                    <span className="text-blue-600 flex items-center group-hover:translate-x-1 transition-transform">
-                      Read <ArrowRight className="ml-1 w-4 h-4" />
-                    </span>
+      {/* 5. DATA-DRIVEN IMPACT */}
+      <section className="py-32 bg-[#050505] border-t border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-5xl font-black text-white tracking-tight mb-8">Measurable Business Impact.</h2>
+              <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12">
+                We don't deal in hypotheticals. Our entire operational model is built to deliver hard, quantitative ROI that your executive board can see on the balance sheet within the first quarter.
+              </p>
+              
+              <div className="space-y-6">
+                {service.businessImpact.map((impact, idx) => (
+                  <div key={idx} className="flex gap-6 items-start p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                    <CheckCircle className="w-8 h-8 text-blue-500 shrink-0 mt-1" />
+                    <div>
+                      <h4 className="text-xl font-bold text-white mb-2">{impact.title}</h4>
+                      <p className="text-zinc-400 leading-relaxed">{impact.description}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative h-[800px] w-full rounded-[3rem] overflow-hidden">
+              <Image 
+                src={service.image} 
+                alt={`${service.title} Impact`} 
+                fill 
+                className="object-cover opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+            </div>
           </div>
         </div>
       </section>
