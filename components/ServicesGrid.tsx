@@ -119,7 +119,7 @@ export default function ServicesGrid({ services }: { services: ServiceProps[] })
         {processExcellenceServices.length > 0 && (
           <div>
             <div className="mb-10">
-              <h3 className="text-3xl font-bold text-slate-900 mb-4">Process Excellence (PRX)</h3>
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Process Excellence</h3>
               <p className="text-slate-600 max-w-2xl text-lg">Data-driven methodologies and intelligent automation to transform and optimize your workflows.</p>
             </div>
             

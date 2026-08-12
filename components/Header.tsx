@@ -61,7 +61,7 @@ export default function Header() {
             className="flex items-center h-full px-5"
             onMouseEnter={() => setActiveMenu('services')}
           >
-            <button className={`flex items-center gap-1.5 font-bold text-sm tracking-wide transition-colors ${activeMenu === 'services' ? 'text-blue-600' : 'text-zinc-600 hover:text-zinc-900'}`}>
+            <button suppressHydrationWarning className={`flex items-center gap-1.5 font-bold text-sm tracking-wide transition-colors ${activeMenu === 'services' ? 'text-blue-600' : 'text-zinc-600 hover:text-zinc-900'}`}>
               Services <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${activeMenu === 'services' ? 'rotate-180' : ''}`} />
             </button>
           </div>

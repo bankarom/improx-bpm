@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import LogoCarousel from "@/components/LogoCarousel";
 import Metrics from "@/components/Metrics";
 import ServicesGrid from "@/components/ServicesGrid";
 import ProcessTimeline from "@/components/ProcessTimeline";
@@ -7,7 +6,7 @@ import IndustriesGrid from "@/components/IndustriesGrid";
 import { getHomePageData, getServices, getIndustries, getPosts } from "@/lib/wordpress";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, ShieldCheck, Lock, Award, FileCheck } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -26,8 +25,7 @@ export default async function Home() {
         ctaSecondary={homeData.hero.ctaSecondary}
       />
       
-      <LogoCarousel />
-      
+
       <ServicesGrid services={services} />
       
       <ProcessTimeline />
@@ -35,6 +33,19 @@ export default async function Home() {
       <IndustriesGrid industries={industries} />
       
       <Metrics metrics={homeData.metrics} />
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-t border-zinc-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-zinc-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Everything you need to know before partnering with our global teams.
+            </p>
+          </div>
+          <FaqAccordion />
+        </div>
+      </section>
 
       {/* Latest Insights / Blogs Section */}
       <section className="py-24 bg-zinc-50 border-t border-zinc-200">
@@ -87,19 +98,6 @@ export default async function Home() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-zinc-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-              Everything you need to know before partnering with our global teams.
-            </p>
-          </div>
-          <FaqAccordion />
         </div>
       </section>
 
