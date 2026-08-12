@@ -6,24 +6,24 @@ import { ChevronDown } from "lucide-react";
 
 const FAQS = [
   {
-    question: "How long does the typical implementation process take?",
-    answer: "Implementation timelines vary based on complexity, but a standard back-office process transition typically takes 30-45 days. Robotic Process Automation (RPA) deployments usually take 60-90 days from blueprinting to go-live."
+    question: "What is Business Process Management (BPM)?",
+    answer: "Business Process Management (BPM) is the practice of systematically improving, automating, and optimizing your company's workflows. It covers everything from back-office operations like finance and HR, to intelligent automation using RPA — helping businesses reduce costs, eliminate errors, and scale efficiently."
   },
   {
-    question: "Where are your global delivery centers located?",
-    answer: "We operate a highly resilient hybrid model. Our primary offshore data and processing centers are in India and the Philippines, while our nearshore Tier-1 voice and customer support teams are strategically located in Costa Rica and Mexico."
+    question: "What kind of businesses do you work with?",
+    answer: "We work with mid-size and large enterprises across a wide range of industries including healthcare, banking & finance, retail, technology, logistics, and telecommunications. Whether you're a fast-growing startup or a Fortune 500 company, our services are designed to scale to your needs."
   },
   {
-    question: "How do you ensure data security and compliance?",
-    answer: "Security is built into our core. We are ISO 27001 certified, SOC 2 Type II compliant, and strictly adhere to GDPR, HIPAA (for healthcare clients), and PCI-DSS (for finance/retail). All data is processed via secure VPNs and VDI environments."
+    question: "How do I get started with improxBPM?",
+    answer: "Getting started is simple. Just fill out the contact form on this page or click 'Schedule Consultation' to book a free 15-minute discovery call. One of our experts will reach out to understand your challenges and recommend the right solution."
   },
   {
-    question: "What is your pricing model?",
-    answer: "We offer flexible engagement models: FTE-based (Full-Time Equivalent) pricing for dedicated teams, Transaction-based pricing for high-volume repetitive tasks (e.g., invoice processing), and Outcome-based pricing for specific consulting deliverables."
+    question: "Will your team work with our existing processes?",
+    answer: "Yes, absolutely. We always begin with a thorough assessment of your current workflows before making any recommendations. Our approach is to enhance and optimize what you already have, not to disrupt it. We work alongside your teams to ensure a smooth transition."
   },
   {
-    question: "Do you integrate with our existing software?",
-    answer: "Absolutely. We are technology-agnostic. Our teams and automation bots integrate seamlessly with legacy ERPs (SAP, Oracle), modern SaaS platforms (Salesforce, Workday), and proprietary custom software via API or UI-level automation."
+    question: "What results can I expect after partnering with improxBPM?",
+    answer: "Our clients typically see measurable improvements within the first 90 days — including significant reductions in operational costs, faster processing times, fewer errors, and improved team productivity. We track and report on all KPIs so you always know the exact value we're delivering."
   }
 ];
 
