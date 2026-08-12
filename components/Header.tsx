@@ -53,8 +53,8 @@ export default function Header() {
            <span className="font-black text-2xl tracking-tighter text-zinc-900">Improx<span className="text-blue-600">BPM</span></span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center h-full gap-1 relative z-10">
+        {/* Desktop Navigation (Shifted Right) */}
+        <nav className="hidden md:flex items-center h-full gap-1 relative z-10 ml-auto mr-8">
           
           {/* SERVICES LINK */}
           <div 
@@ -79,8 +79,8 @@ export default function Header() {
           <Link href="/about" className="px-5 font-bold text-sm tracking-wide text-zinc-600 hover:text-zinc-900 transition-colors" onMouseEnter={() => setActiveMenu(null)}>
             About Us
           </Link>
-          <Link href="/resources" className="px-5 font-bold text-sm tracking-wide text-zinc-600 hover:text-zinc-900 transition-colors" onMouseEnter={() => setActiveMenu(null)}>
-            Resources
+          <Link href="/blog" className="px-5 font-bold text-sm tracking-wide text-zinc-600 hover:text-zinc-900 transition-colors" onMouseEnter={() => setActiveMenu(null)}>
+            Blogs
           </Link>
         </nav>
 
