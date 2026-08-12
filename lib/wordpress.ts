@@ -479,8 +479,18 @@ const MOCK_INDUSTRIES = [
 ];
 
 const MOCK_HOME_PAGE = {
-  title: 'Home',
-  content: 'Welcome to Improx BPM'
+  hero: {
+    title: 'Transform Your Enterprise Operations.',
+    subtitle: 'High-volume back-office management, intelligent automation, and measurable ROI for modern enterprises.',
+    ctaPrimary: 'Schedule Consultation',
+    ctaSecondary: 'Explore Services'
+  },
+  metrics: [
+    { value: '99.9%', label: 'Processing Accuracy' },
+    { value: '45%', label: 'Average Cost Reduction' },
+    { value: '24/7', label: 'Global Operations' },
+    { value: 'ISO', label: '27001 Certified' }
+  ]
 };
 
 export async function getHomePageData() {
