@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               Let's discuss how our team can transform your business workflows and bottom line.
             </p>
             <Link 
-              href="#contact" 
+              href="/#contact" 
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-blue-900 transition-all bg-white rounded-lg hover:bg-slate-50 hover:shadow-lg hover:-translate-y-0.5"
             >
               Schedule a Strategy Call

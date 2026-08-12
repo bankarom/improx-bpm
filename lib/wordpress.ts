@@ -560,83 +560,112 @@ export async function getIndustries(): Promise<IndustryData[]> {
 
 const MOCK_POSTS = [
   {
+    title: 'How Automated AP Processing Cuts Invoice Costs by 80%',
+    slug: 'automated-ap-processing-cost',
+    category: 'Finance & Accounting',
+    excerpt: 'Manual Accounts Payable is bleeding enterprises dry. Here is how intelligent OCR and 3-way matching technology eliminates the cost and delays.',
+    date: 'August 12, 2026',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80',
+    content: `Manual invoice processing is one of the most expensive and error-prone activities in any enterprise.\n\n### The Hidden Cost of Manual AP\n\nEvery manually processed invoice costs enterprises between $12 and $30 in labor, overhead, and error correction. When you multiply this across tens of thousands of invoices per month, the financial leakage is catastrophic.\n\n### The Intelligent AP Solution\n\nBy deploying OCR technology and automated 3-way matching, improxBPM clients typically achieve 80% straight-through processing rates. Invoices are approved and paid without a single human touch — and exceptions are intelligently routed to the right approver instantly.`
+  },
+  {
+    title: 'Month-End Close in 3 Days: The Record-to-Report Revolution',
+    slug: 'month-end-close-record-to-report',
+    category: 'Finance & Accounting',
+    excerpt: 'Top CFOs are slashing their month-end close from 10 days to 3. The secret is a disciplined R2R framework combined with intelligent automation.',
+    date: 'August 10, 2026',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+    content: `For most finance teams, the month-end close is the most stressful two weeks of the month.\n\n### Why Month-End Takes So Long\n\nThe root cause is almost always the same: data fragmented across multiple systems, manual journal entries with no audit trail, and approval workflows stuck in email chains.\n\n### The improxBPM R2R Approach\n\nWe standardize the entire close process from general ledger reconciliation to financial statement production. Clients consistently report cutting their close cycle from 10+ days down to 3 days or fewer.`
+  },
+  {
+    title: 'Offshore vs. Nearshore: Building Your Global HR Shared Services Center',
+    slug: 'offshore-nearshore-hr',
+    category: 'Human Resources',
+    excerpt: 'An objective analysis on where to build your global shared services center based on language requirements, cost arbitrage, and time zones.',
+    date: 'August 08, 2026',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80',
+    content: `When building a global shared services center for HR, executives face a high-stakes decision: offshore or nearshore?\n\n### The Offshore Advantage\n\nLocations like India and the Philippines provide the deepest talent pools and most aggressive cost arbitrage for transactional HR work.\n\n### The Hybrid Approach\n\nAt improxBPM, we build sophisticated hybrid models — offshore centers for heavy administrative lifting, nearshore centers for high-touch, voice-driven employee interactions.`
+  },
+  {
+    title: 'The Real Cost of a Bad Hire and How BPM Prevents It',
+    slug: 'real-cost-bad-hire-bpm',
+    category: 'Human Resources',
+    excerpt: 'Studies show a bad hire costs up to 30% of their annual salary. Here is how structured HR processes and automation eliminate hiring risk.',
+    date: 'August 06, 2026',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80',
+    content: `According to the US Department of Labor, a bad hire costs up to 30% of that employee's annual salary.\n\n### Where HR Processes Break Down\n\nBad hires most often stem from inconsistent screening processes, slow time-to-offer, and poor onboarding that sets new employees up for failure from day one.\n\n### How BPM Transforms Talent Acquisition\n\nBy standardizing every step of the recruitment lifecycle — from resume screening automation to structured interview scorecards — improxBPM clients dramatically improve both the speed and quality of their hiring decisions.`
+  },
+  {
+    title: 'Why 24/7 Customer Support is No Longer Optional for Enterprise Brands',
+    slug: 'why-247-customer-support-essential',
+    category: 'Customer Support',
+    excerpt: "Today's customers expect instant answers at any hour. Brands that cannot deliver lose revenue and loyalty permanently.",
+    date: 'August 05, 2026',
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80',
+    content: `The expectation gap in customer service has never been wider. Customers now benchmark every brand against the best service they have ever received.\n\n### The Cost of Unavailability\n\nStudies show that 89% of customers have switched to a competitor after a poor customer service experience.\n\n### The Global Delivery Model\n\nAt improxBPM, we deploy fully trained, brand-immersed customer support teams across multiple time zones — ensuring seamless 24/7 omnichannel coverage across phone, email, live chat, and social media.`
+  },
+  {
+    title: '5 Metrics Every Customer Support Leader Must Track in 2026',
+    slug: 'customer-support-metrics-2026',
+    category: 'Customer Support',
+    excerpt: "Average Handle Time is dead. The new era of customer support is defined by CSAT, FCR, and Customer Effort Score.",
+    date: 'August 03, 2026',
+    image: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?auto=format&fit=crop&q=80',
+    content: `In 2026, leading with Average Handle Time (AHT) as your primary support KPI is a guaranteed path to poor customer satisfaction.\n\n### The 5 Metrics That Actually Matter\n\n**1. First Contact Resolution (FCR)** — the single strongest predictor of customer satisfaction.\n**2. Customer Satisfaction Score (CSAT)** — measured immediately post-interaction.\n**3. Customer Effort Score (CES)** — lower effort means higher loyalty.\n**4. Net Promoter Score (NPS)** — reveals the long-term health of customer relationships.\n**5. Escalation Rate** — reveals training gaps and process failures in real-time.`
+  },
+  {
     title: 'How RPA is Eliminating Data Entry Errors in Healthcare',
     slug: 'rpa-healthcare-data-entry',
     category: 'Automation',
     excerpt: 'Discover how top hospitals are using software bots to process patient records with 100% accuracy, reducing claim denials by 30%.',
-    date: 'August 12, 2026',
+    date: 'August 01, 2026',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80',
-    content: `The healthcare industry is bleeding billions of dollars annually due to simple administrative errors. When a human medical coder types the wrong billing code, the insurance company denies the claim. That means the hospital doesn't get paid for the work they just did. This systemic inefficiency leads to bloated back-office departments, delayed cash flow, and ultimately, higher costs for patients.
-
-Enter Robotic Process Automation (RPA).
-
-### The Power of Precision in Healthcare
-
-Software bots do not get tired, they do not get distracted by a busy emergency room, and they certainly do not make transcription errors. By deploying RPA to handle medical coding, billing, and claims processing, modern healthcare organizations are fundamentally rewiring how they operate. These bots can extract data from electronic health records (EHRs), cross-reference it against complex insurance payer rules, and automatically submit claims with zero human intervention.
-
-The sheer volume of data in healthcare makes it the perfect candidate for automation. Every single patient encounter generates massive amounts of structured and unstructured data. Relying on human labor to manually route this data between disparate legacy systems is a recipe for disaster. Bots can bridge these gaps instantly, ensuring data flows seamlessly from the point of care to the billing department.
-
-### Measurable ROI and Revenue Cycle Optimization
-
-The financial results of deploying intelligent automation are staggering. One of our recent clients, a massive regional hospital network, saw a 30% reduction in claim denials within the first 60 days of deploying our custom bots. 
-
-That translates to millions of dollars of trapped cash flow instantly released back into the hospital's operating budget. Furthermore, the Accounts Receivable (A/R) days dropped significantly, meaning the hospital got paid much faster.
-
-Beyond just the financial metrics, the implementation of RPA allowed the hospital to reallocate their human workforce. Instead of staring at screens doing mindless data entry, their staff could focus on high-value tasks like complex claim resolution, patient financial counseling, and improving the overall patient experience.
-
-Automation is no longer a luxury in healthcare; it is an absolute necessity for survival in a highly regulated and margin-compressed industry.`
+    content: `The healthcare industry is bleeding billions of dollars annually due to simple administrative errors.\n\n### The Power of RPA Precision\n\nSoftware bots do not get tired or distracted. By deploying RPA to handle medical coding, billing, and claims processing, modern healthcare organizations are fundamentally rewiring how they operate.\n\n### Measurable ROI\n\nOne of our regional hospital network clients saw a 30% reduction in claim denials within the first 60 days of deploying custom bots — releasing millions of dollars of trapped cash flow back into the operating budget.`
   },
   {
-    title: 'The Hidden Costs of Manual Invoice Processing',
-    slug: 'hidden-costs-manual-invoicing',
-    category: 'Finance',
-    excerpt: 'Manual Accounts Payable workflows are costing enterprises millions in late fees and missed early-payment discounts. Here is how to fix it.',
-    date: 'August 05, 2026',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80',
-    content: `Are you still paying highly compensated employees to type invoice numbers into a spreadsheet? If so, your Accounts Payable (AP) department is functioning as a massive cost center when it should be a strategic asset.
-
-Manual invoice processing is incredibly slow, error-prone, and frustrating. By the time an invoice is received via email, physically printed or routed for approval, and manually keyed into the ERP system, weeks may have passed.
-
-### Losing Out on Discounts and Incurring Penalties
-
-Because of these excessively slow cycle times, companies are consistently missing out on early-payment discounts (such as 2/10 Net 30 terms). Even worse, they are often getting hit with late fees from their suppliers. 
-
-When you scale this inefficiency across tens of thousands of invoices per month, the financial leakage is catastrophic. Millions of dollars are lost simply because the approval workflow is stuck in someone's inbox. Additionally, the lack of real-time visibility into liabilities makes it nearly impossible for the treasury team to accurately forecast cash flow.
-
-### The Automated Solution: OCR and Intelligent Routing
-
-The solution is entirely within reach. By digitizing your Accounts Payable workflow using advanced OCR (Optical Character Recognition) and intelligent routing algorithms, invoices can be processed in minutes, not weeks. 
-
-When an invoice arrives, the OCR technology instantly extracts key data points (vendor name, invoice number, line items, total amount) with near-perfect accuracy. The system then automatically matches the invoice against the Purchase Order (PO) and receiving documents. If it's a perfect match (a 3-way match), the invoice is automatically approved and scheduled for payment without a human ever touching it.
-
-If there is a discrepancy, the system intelligently routes the exception to the correct manager for review. This allows your treasury team to hold onto cash longer while still capturing massive early-payment discounts. By transforming AP from a tactical data-entry function into a strategic cash-management hub, enterprises can realize massive ROI within the first year of deployment.`
-  },
-  {
-    title: 'Offshore vs. Nearshore: Building a Global HR Team',
-    slug: 'offshore-nearshore-hr',
-    category: 'Human Resources',
-    excerpt: 'An objective analysis on where to build your global shared services center based on language requirements, cost arbitrage, and time zones.',
+    title: 'Building Your First RPA Bot: A Step-by-Step Enterprise Guide',
+    slug: 'first-rpa-bot-enterprise-guide',
+    category: 'Automation',
+    excerpt: 'From process selection to go-live monitoring — a practical guide for enterprise operations leaders deploying their first RPA program.',
     date: 'July 28, 2026',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80',
-    content: `When building a global shared services center for Human Resources, executives are faced with a massive, high-stakes decision: do we build our operations offshore (e.g., India, Philippines) or nearshore (e.g., Mexico, Costa Rica, Colombia)?
-
-Both models offer significant advantages, but choosing the wrong location for a specific business function can lead to cultural friction, poor employee experience, and failed ROI. Here is an objective analysis of how to structure your global delivery model.
-
-### The Offshore Advantage: Maximum Arbitrage
-
-Offshore locations like India and the Philippines provide the deepest talent pools on the planet and the most aggressive cost arbitrage. For highly transactional, repetitive back-office work like payroll processing, benefits administration data entry, and resume screening, offshore is usually the most mathematically sound decision.
-
-These locations have spent decades building massive infrastructure and educational pipelines specifically designed to support Western enterprises. If the workflow is rule-based and doesn't require real-time collaboration with US time zones, offshore provides unparalleled efficiency and scale.
-
-### The Nearshore Advantage: Alignment and Affinity
-
-Nearshore locations in Latin America offer something offshore cannot: exact time-zone alignment with the United States and high levels of bilingual (English/Spanish) cultural affinity. 
-
-If your HR team needs to be on the phone or Zoom constantly with US-based employees—for example, acting as a Tier 1 HR Helpdesk, conducting live onboarding sessions, or handling complex employee relations issues—nearshore is often heavily preferred. The ability to collaborate in real-time without the friction of a 12-hour time difference ensures a seamless cultural experience for your internal teams.
-
-### The Hybrid Approach
-
-At ImproxBPM, we do not believe in a one-size-fits-all approach. We help enterprise clients build sophisticated hybrid models. We utilize offshore centers for the heavy lifting (the data processing, the analytics, the administrative burden) and nearshore centers for the high-touch, voice-driven employee interactions. This structural design maximizes cost savings while simultaneously elevating the employee experience.`
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80',
+    content: `Starting an RPA program without a structured approach leads to wasted months and failed ROI.\n\n### Step 1: Process Selection\n\nThe best automation candidates are highly repetitive, rule-based, involve structured digital data, and consume significant human hours.\n\n### Step 2: Engineering and Staging\n\nOur developers build highly resilient RPA scripts tested against thousands of edge cases before going near live data.\n\n### Step 3: Go-Live and Hypercare\n\nAfter go-live, 24/7 monitoring is essential. A hypercare period of 30-60 days ensures the bot performs flawlessly before handover to steady-state operations.`
+  },
+  {
+    title: 'Dirty Data is Costing Your Business More Than You Think',
+    slug: 'dirty-data-business-cost',
+    category: 'Data Management',
+    excerpt: "Poor data quality costs the US economy $3.1 trillion per year. Here is how to calculate your organization's data quality debt — and fix it.",
+    date: 'July 25, 2026',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+    content: `Gartner estimates that poor data quality costs organizations an average of $12.9 million per year.\n\n### Where Data Quality Problems Hide\n\nDuplicate customer records, inconsistent vendor names, and missing product attributes all create compounding operational problems.\n\n### The improxBPM MDM Approach\n\nWe begin with a comprehensive data architecture audit, run aggressive deduplication algorithms, and implement governance frameworks that prevent dirty data from re-entering your systems.`
+  },
+  {
+    title: 'How to Build a Master Data Governance Framework That Actually Works',
+    slug: 'master-data-governance-framework',
+    category: 'Data Management',
+    excerpt: 'Most data governance initiatives fail within 18 months. Here is the framework that top enterprises use to make data quality a permanent competitive advantage.',
+    date: 'July 22, 2026',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+    content: `Data governance programs fail for one primary reason: they are treated as IT projects rather than business programs.\n\n### The 4 Pillars of Effective Data Governance\n\n**1. Data Ownership** — every data entity must have a designated business owner.\n**2. Data Standards** — clear definitions enforced at the point of entry.\n**3. Data Quality Monitoring** — automated dashboards measuring KPIs in real-time.\n**4. Continuous Remediation** — a standing process addressing quality issues before they compound.`
+  },
+  {
+    title: 'The DMAIC Roadmap: How to Eliminate Any Business Process Problem',
+    slug: 'dmaic-roadmap-process-improvement',
+    category: 'Process Excellence',
+    excerpt: 'Define, Measure, Analyze, Improve, Control. The DMAIC framework has helped enterprises save billions. Here is how to apply it to your operations.',
+    date: 'July 18, 2026',
+    image: 'https://images.unsplash.com/photo-1507925922893-873105f4be8d?auto=format&fit=crop&q=80',
+    content: `The DMAIC methodology is the backbone of Lean Six Sigma — yet most organizations apply it incorrectly by skipping the Measure phase.\n\n### Why Measurement is Critical\n\nWithout accurate baseline data, you cannot know if your improvement actually worked.\n\n### Applying DMAIC at Scale\n\nAt improxBPM, our certified Lean Six Sigma Black Belts have used this framework to eliminate multi-million dollar operational inefficiencies for enterprise clients across 12 industries.`
+  },
+  {
+    title: 'Value Stream Mapping: The Tool That Exposes Hidden Waste in Your Operations',
+    slug: 'value-stream-mapping-hidden-waste',
+    category: 'Process Excellence',
+    excerpt: 'Most operational waste is invisible to senior leadership because no one has ever mapped the actual end-to-end workflow. Here is how to change that.',
+    date: 'July 15, 2026',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
+    content: `Value Stream Mapping (VSM) is arguably the most revealing tool in the Lean practitioner's toolkit.\n\n### What a Value Stream Map Reveals\n\nThe majority of total process lead time is non-value-added time: invoices sitting in inboxes, job applicants waiting for interviews, customer queries sitting unassigned.\n\n### From Current State to Future State\n\nOnce the current state map is complete, the VSM exercise shifts to designing the ideal Future State — becoming the roadmap for targeted process improvements and automation investments.`
   }
 ];
 
