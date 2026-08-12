@@ -27,7 +27,12 @@ const FAQS = [
   }
 ];
 
-export default function FaqAccordion() {
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export default function FaqAccordion({ faqs = FAQS }: { faqs?: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First one open by default
 
   const toggleAccordion = (index: number) => {
@@ -36,7 +41,7 @@ export default function FaqAccordion() {
 
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      {FAQS.map((faq, index) => {
+      {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
         return (
           <div key={index} className="border border-zinc-200 rounded-2xl bg-white overflow-hidden shadow-sm">
