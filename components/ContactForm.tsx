@@ -1,0 +1,199 @@
+"use client";
+
+import { useState } from "react";
+import { Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
+
+const COUNTRY_CODES = [
+  { code: "+1", label: "US (+1)" },
+  { code: "+44", label: "UK (+44)" },
+  { code: "+91", label: "IN (+91)" },
+  { code: "+61", label: "AU (+61)" },
+  { code: "+49", label: "DE (+49)" },
+  { code: "+33", label: "FR (+33)" },
+];
+
+const SERVICES_DATA = {
+  "Back-Office Operations": [
+    "Finance & Accounting",
+    "Human Resources",
+    "Procurement & Sourcing",
+    "IT Helpdesk",
+    "Document Management",
+    "Customer Support",
+  ],
+  "Process Excellence": [
+    "Master Data Management",
+    "Robotic Process Automation (RPA)",
+    "Lean Six Sigma",
+    "Process Mining",
+    "Workflow Digitization",
+    "Quality Assurance",
+  ]
+};
+
+export default function ContactForm() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedService, setSelectedService] = useState<string>("");
+
+  return (
+    <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-200 overflow-hidden flex flex-col md:flex-row">
+      
+      {/* Left Panel: Contact Info */}
+      <div className="bg-blue-600 text-white p-10 md:w-1/3 flex flex-col justify-between">
+        <div>
+          <h2 className="text-3xl font-extrabold mb-10">Get in Touch</h2>
+          
+          <div className="space-y-8">
+            <div className="flex items-start gap-4">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-blue-100 text-sm font-medium mb-1">Call us directly</div>
+                <div className="text-xl font-bold">(800) 555-0199</div>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-blue-100 text-sm font-medium mb-1">Email us</div>
+                <div className="text-xl font-bold text-wrap break-all">consulting@improx.tech</div>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+                <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-blue-100 text-sm font-medium mb-1">Response time</div>
+                <div className="text-xl font-bold">Within 2 hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-16 pt-10 border-t border-white/20">
+          <h3 className="font-bold text-lg mb-6">What to expect:</h3>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
+              <span className="font-medium text-blue-50">15-minute discovery call</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
+              <span className="font-medium text-blue-50">Custom ROI & cost analysis</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
+              <span className="font-medium text-blue-50">Platform integration assessment</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
+              <span className="font-medium text-blue-50">Personalized deployment plan</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Right Panel: The Form */}
+      <div className="p-10 md:p-12 md:w-2/3 bg-white">
+        <form className="space-y-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold text-zinc-900 mb-2">First Name <span className="text-red-500">*</span></label>
+              <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-zinc-900 mb-2">Last Name <span className="text-red-500">*</span></label>
+              <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold text-zinc-900 mb-2">Work Email <span className="text-red-500">*</span></label>
+              <input type="email" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-zinc-900 mb-2">Phone Number <span className="text-red-500">*</span></label>
+              <div className="flex">
+                <select className="px-3 py-3 rounded-l-xl border border-zinc-200 bg-zinc-100 focus:ring-2 focus:ring-blue-600 outline-none border-r-0 font-medium text-zinc-700">
+                  {COUNTRY_CODES.map(country => (
+                    <option key={country.code} value={country.code}>{country.code}</option>
+                  ))}
+                </select>
+                <input type="tel" className="w-full px-4 py-3 rounded-r-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold text-zinc-900 mb-2">Company Name <span className="text-red-500">*</span></label>
+            <input type="text" className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+          </div>
+
+          {/* Cascading Dropdowns */}
+          <div>
+            <label className="block text-sm font-bold text-zinc-900 mb-2">Primary Area of Interest <span className="text-red-500">*</span></label>
+            <select 
+              className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all appearance-none"
+              value={selectedCategory}
+              onChange={(e) => {
+                setSelectedCategory(e.target.value);
+                setSelectedService(""); // Reset sub-service when category changes
+              }}
+            >
+              <option value="" disabled>Select category</option>
+              {Object.keys(SERVICES_DATA).map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+          </div>
+
+          {selectedCategory && (
+            <div className="animate-fade-in">
+              <label className="block text-sm font-bold text-zinc-900 mb-2">Specific Service</label>
+              <select 
+                className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all appearance-none"
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+              >
+                <option value="" disabled>Select service</option>
+                {SERVICES_DATA[selectedCategory as keyof typeof SERVICES_DATA].map(service => (
+                  <option key={service} value={service}>{service}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
+          <div>
+            <label className="block text-sm font-bold text-zinc-900 mb-2">Tell us about your current challenges</label>
+            <textarea 
+              rows={4} 
+              className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+              placeholder="Describe your current pain points, team size, and what you hope to achieve..."
+            ></textarea>
+          </div>
+
+          <button 
+            type="button" 
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 text-lg mt-4"
+          >
+            Schedule My Free Discovery Call
+          </button>
+          
+          <p className="text-xs text-center text-zinc-500 font-medium pt-4">
+            By submitting this form, you agree to receive communications from improxBPM. We respect your privacy and will never share your information.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  );
+}
