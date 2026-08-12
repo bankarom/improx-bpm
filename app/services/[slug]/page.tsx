@@ -11,6 +11,7 @@ import {
   GraduationCap, Landmark, BarChart, ChevronDown, CheckCircle, Plus
 } from 'lucide-react';
 import { getServiceBySlug, getServices, getPosts } from '@/lib/wordpress';
+import FAQAccordion from '@/components/FAQAccordion';
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -358,19 +359,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">Frequently Asked Questions</h2>
           </div>
           
-          <div className="space-y-6">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-zinc-50 border border-zinc-200 p-8 rounded-2xl">
-                <h3 className="text-xl font-bold text-zinc-900 mb-4 flex items-start">
-                  <span className="text-blue-600 mr-4">Q.</span> 
-                  {faq.question}
-                </h3>
-                <p className="text-zinc-600 leading-relaxed font-medium pl-8">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
