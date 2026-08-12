@@ -55,14 +55,7 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-12 flex items-center gap-6">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className={`w-12 h-12 rounded-full border-2 border-white bg-zinc-200 z-${50 - i * 10} overflow-hidden`}>
-                       <Image src={`https://images.unsplash.com/photo-15${50000000000 + i}?auto=format&fit=crop&w=100&q=80`} width={48} height={48} alt="Team member" className="object-cover w-full h-full" />
-                    </div>
-                  ))}
-                </div>
-                <div className="text-sm font-bold text-zinc-900">
+                <div className="text-lg font-bold text-zinc-900 border-l-4 border-blue-600 pl-4 py-2">
                   Backed by 1,500+ global <br/> process engineers & analysts.
                 </div>
               </div>
@@ -92,32 +85,33 @@ export default function AboutPage() {
       </section>
 
       {/* 3. GLOBAL SCALE (BY THE NUMBERS) */}
-      <section className="py-24 md:py-32 bg-blue-600 text-white relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-[#0B1120] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">Execution at Enterprise Scale.</h2>
-            <p className="text-xl text-blue-100 font-light leading-relaxed">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed">
               We don't deal in hypotheticals. Our infrastructure processes massive volumes of mission-critical data every single day.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-blue-500/30">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-zinc-800">
             <div className="text-center px-4">
-              <div className="text-5xl md:text-6xl font-black mb-4">12M+</div>
-              <div className="text-blue-100 font-bold uppercase tracking-wider text-sm">Transactions<br/>Processed Annually</div>
+              <div className="text-5xl md:text-6xl font-black mb-4 text-blue-500">12M+</div>
+              <div className="text-zinc-300 font-bold uppercase tracking-wider text-sm">Transactions<br/>Processed Annually</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-5xl md:text-6xl font-black mb-4">99.9%</div>
-              <div className="text-blue-100 font-bold uppercase tracking-wider text-sm">SLA Quality<br/>Adherence Rate</div>
+              <div className="text-5xl md:text-6xl font-black mb-4 text-blue-500">99.9%</div>
+              <div className="text-zinc-300 font-bold uppercase tracking-wider text-sm">SLA Quality<br/>Adherence Rate</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-5xl md:text-6xl font-black mb-4">$2B+</div>
-              <div className="text-blue-100 font-bold uppercase tracking-wider text-sm">Managed Spend<br/>Optimized</div>
+              <div className="text-5xl md:text-6xl font-black mb-4 text-blue-500">$2B+</div>
+              <div className="text-zinc-300 font-bold uppercase tracking-wider text-sm">Managed Spend<br/>Optimized</div>
             </div>
             <div className="text-center px-4">
-              <div className="text-5xl md:text-6xl font-black mb-4">45%</div>
-              <div className="text-blue-100 font-bold uppercase tracking-wider text-sm">Average Client<br/>Cost Reduction</div>
+              <div className="text-5xl md:text-6xl font-black mb-4 text-blue-500">45%</div>
+              <div className="text-zinc-300 font-bold uppercase tracking-wider text-sm">Average Client<br/>Cost Reduction</div>
             </div>
           </div>
         </div>
