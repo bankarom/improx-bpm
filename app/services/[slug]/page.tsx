@@ -28,28 +28,43 @@ const IconMap: Record<string, React.ElementType> = {
   PieChart, GitMerge, Scissors, Zap, Smile, GraduationCap, Landmark, BarChart
 };
 
+// Simplified, highly relevant pain points using standard global business English
 function getDetailedPainPoints(slug: string) {
   const defaultPain = [
-    { title: "Non-Value Added Overhead", desc: "Core staff spending exorbitant hours on non-revenue-generating administrative tasks instead of strategic execution." },
-    { title: "Compliance Degradation", desc: "High error rates in manual processing leading to failed compliance audits, severe financial penalties, and loss of client trust." },
-    { title: "Siloed Data Architecture", desc: "Disparate, non-communicating systems causing massive operational bottlenecks and completely obscuring enterprise-wide visibility." },
-    { title: "Inelastic Scaling", desc: "Complete inability to scale operations rapidly during high-volume periods without linearly increasing expensive human headcount." }
+    { title: "Manual Processing Costs", desc: "Core staff spending too many hours on repetitive administrative tasks instead of focusing on business growth." },
+    { title: "Compliance & Error Risks", desc: "High error rates in manual data entry leading to compliance issues, financial penalties, and poor client experiences." },
+    { title: "Disconnected Systems", desc: "Using multiple software systems that do not communicate, causing major delays and a lack of clear reporting." },
+    { title: "Difficulty Scaling", desc: "Inability to handle sudden increases in work volume without immediately hiring expensive new employees." }
   ];
   
   switch(slug) {
     case 'finance-accounting':
       return [
-        { title: "Working Capital Trapped", desc: "Invoices delayed in convoluted, manual approval workflows causing entirely missed early-payment discounts and vendor friction." },
-        { title: "Cash Flow Asphyxiation", desc: "High Days Sales Outstanding (DSO) creating severe cash flow bottlenecks that prevent strategic corporate reinvestment." },
-        { title: "Month-End Paralysis", desc: "Month-end close takes weeks instead of days due to manual general ledger reconciliation and fragmented data sources." },
-        { title: "Audit Anxiety", desc: "Constant fear of regulatory audits due to scattered financial documentation, lack of clear audit trails, and poor compliance standards." }
+        { title: "Delayed Invoice Approvals", desc: "Invoices stuck in slow, manual approval workflows, causing missed early-payment discounts and vendor frustration." },
+        { title: "Cash Flow Issues (DSO)", desc: "High Days Sales Outstanding (DSO) creating cash flow problems that prevent you from investing back into the business." },
+        { title: "Slow Month-End Close", desc: "The month-end financial close takes weeks instead of days due to manual reconciliation across multiple spreadsheets." },
+        { title: "Audit & Compliance Risks", desc: "Poor document management and lack of clear financial audit trails causing stress during regulatory reviews." }
       ];
     case 'human-resources':
       return [
-        { title: "Strategic Paralysis", desc: "Senior HR Business Partners bogged down by Tier-1 employee queries and mundane paperwork instead of focusing on culture and talent." },
-        { title: "Global Payroll Liability", desc: "Intolerable payroll errors across fragmented global jurisdictions leading to disgruntled employees and immediate tax penalties." },
-        { title: "Candidate Abandonment", desc: "Slow, manual onboarding processes causing high drop-off rates for top-tier candidates who expect a modern, seamless digital experience." },
-        { title: "Data Fragmentation", desc: "Scattered, unprotected employee records across multiple non-integrated systems severely violating modern data privacy laws." }
+        { title: "HR Administrative Burden", desc: "Your HR team is bogged down answering basic employee questions and managing paperwork instead of focusing on company culture." },
+        { title: "Global Payroll Errors", desc: "Frequent payroll mistakes across different countries and tax jurisdictions leading to unhappy employees and tax penalties." },
+        { title: "Slow Onboarding", desc: "Manual, paper-based onboarding processes causing delays and a poor first impression for new hires." },
+        { title: "Scattered Employee Data", desc: "Employee records stored across different, unsecure systems, making reporting difficult and risking data privacy violations." }
+      ];
+    case 'rpa':
+      return [
+        { title: "Wasted Human Potential", desc: "Highly paid employees spending their days doing simple data entry between two different software screens." },
+        { title: "High Transactional Errors", desc: "Human fatigue leading to unacceptable error rates when processing thousands of similar documents or invoices." },
+        { title: "Processing Backlogs", desc: "Work piling up overnight or during peak seasons because humans can only work 8-hour shifts." },
+        { title: "Legacy Software Limitations", desc: "Old company software that doesn't have modern APIs, making it impossible to integrate with new technology." }
+      ];
+    case 'procurement-sourcing':
+      return [
+        { title: "Rogue Spending", desc: "Employees buying from unapproved vendors, leading to higher costs and a lack of consolidated purchasing power." },
+        { title: "Supplier Risks", desc: "Relying on a single supplier without backup options, making your supply chain highly vulnerable to disruptions." },
+        { title: "Slow Purchasing Cycles", desc: "It takes too long for a purchase request to become an actual order, slowing down your entire business operation." },
+        { title: "Poor Contract Tracking", desc: "Contracts auto-renewing without anyone noticing, and suppliers failing to meet their promised service levels." }
       ];
     default:
       return defaultPain;
@@ -99,13 +114,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   href="/contact" 
                   className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/20"
                 >
-                  Initiate Transformation
+                  Schedule Consultation
                 </Link>
                 <Link 
-                  href="#reality" 
+                  href="#challenge" 
                   className="inline-flex items-center justify-center text-zinc-600 font-bold hover:text-blue-600 transition-colors group px-8 py-4"
                 >
-                  Explore Architecture <ChevronDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
+                  Learn More <ChevronDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -122,37 +137,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   priority
                 />
               </div>
-              
-              {/* Floating Metric Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-zinc-100 flex items-center gap-4 animate-bounce" style={{animationDuration: '3s'}}>
-                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
-                  <Activity className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Efficiency</p>
-                  <p className="text-2xl font-black text-zinc-900">+45%</p>
-                </div>
-              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 2. STICKY-SCROLL: THE OPERATIONAL REALITY (High Contrast Deep Navy) */}
-      <section id="reality" className="relative bg-[#0B1120] text-white">
+      {/* 2. THE CHALLENGE (Clear, Simple Global Language) */}
+      <section id="challenge" className="relative bg-[#0B1120] text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 py-24 md:py-32">
             
             {/* Sticky Left Column */}
             <div className="lg:w-1/3">
               <div className="sticky top-32">
-                <span className="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Operational Friction</span>
+                <span className="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Current Landscape</span>
                 <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">
-                  The Enterprise Reality You Are Facing.
+                  The Challenge
                 </h2>
                 <p className="text-zinc-400 text-lg leading-relaxed">
-                  Enterprise growth is consistently bottlenecked by legacy friction. We identify the exact failure points in your architecture before we rewrite them.
+                  Growing companies often face the same operational bottlenecks. We identify these core issues and resolve them before implementing new technology or processes.
                 </p>
               </div>
             </div>
@@ -176,37 +180,36 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 3. BENTO BOX: CORE CAPABILITIES (Clean White / Zinc) */}
+      {/* 3. CORE CAPABILITIES (Standardized Uniform Grid) */}
       <section className="py-24 md:py-32 bg-zinc-50 border-b border-zinc-200">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Architecture</span>
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight mb-6">Bespoke Execution Modules</h2>
+            <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Solutions</span>
+            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight mb-6">Core Capabilities</h2>
             <p className="text-lg text-zinc-600 font-medium leading-relaxed">
-              We do not provide off-the-shelf templates. Every capability is precision-engineered to integrate flawlessly into your existing enterprise ecosystem.
+              We provide highly specific, scalable solutions designed to integrate smoothly into your global business operations.
             </p>
           </div>
           
-          {/* Asymmetrical Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto auto-rows-[minmax(280px,auto)]">
+          {/* Uniform Grid - ALL CARDS EXACTLY THE SAME SIZE */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {service.deliverables.map((item, idx) => {
               const Icon = IconMap[item.icon] || Database;
-              const isLarge = idx === 0 || idx === 3;
               
               return (
                 <div 
                   key={idx} 
-                  className={`relative overflow-hidden bg-white border border-zinc-200 p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-300 transition-all duration-500 flex flex-col justify-between group ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
+                  className="relative overflow-hidden bg-white border border-zinc-200 p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-300 transition-all duration-500 flex flex-col group h-full"
                 >
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
                   
-                  <div className="w-14 h-14 bg-zinc-50 border border-zinc-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 relative z-10">
+                  <div className="w-14 h-14 bg-zinc-50 border border-zinc-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 relative z-10 shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   
-                  <div className="relative z-10 mt-auto">
-                    <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">{item.title}</h3>
-                    <p className="text-sm md:text-base text-zinc-600 leading-relaxed font-medium">
+                  <div className="relative z-10 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold text-zinc-900 mb-3">{item.title}</h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed font-medium">
                       {item.description}
                     </p>
                   </div>
@@ -217,18 +220,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 4. ANIMATED INTEGRATION PIPELINE (Methodology) */}
+      {/* 4. HOW WE WORK (Methodology) */}
       <section className="py-24 md:py-32 bg-white relative overflow-hidden border-b border-zinc-200">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Deployment</span>
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">The Integration Pipeline</h2>
+            <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Methodology</span>
+            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">How We Work</h2>
           </div>
           
           <div className="max-w-5xl mx-auto relative">
             {/* The Animated Center Line */}
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-zinc-100 md:-translate-x-1/2 rounded-full overflow-hidden">
-              {/* Glowing pulse moving down the line */}
               <div className="w-full h-1/3 bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-pulse" style={{animationDuration: '3s'}}></div>
             </div>
             
@@ -238,16 +240,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 return (
                   <div key={idx} className={`relative flex flex-col md:flex-row items-center group ${isEven ? 'md:flex-row-reverse' : ''}`}>
                     
-                    {/* The Animated Glowing Node */}
+                    {/* The Animated Node */}
                     <div className="absolute left-8 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-zinc-200 group-hover:border-blue-500 shadow-lg group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform -translate-x-[15px] md:-translate-x-1/2 z-10 transition-all duration-500 flex items-center justify-center">
                       <div className="w-2 h-2 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-500 delay-100"></div>
                     </div>
                     
-                    {/* Content Box (Animated Hover Lift) */}
+                    {/* Content Box */}
                     <div className={`ml-20 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
                       <div className="bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm group-hover:shadow-2xl group-hover:border-blue-200 group-hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
                         
-                        {/* Decorative Background Icon */}
                         <Plus className={`absolute w-32 h-32 text-zinc-50 opacity-0 group-hover:opacity-100 transition-all duration-700 -z-10 ${isEven ? '-top-10 -right-10 rotate-45' : '-bottom-10 -left-10 -rotate-45'}`} />
 
                         <span className="text-blue-600 font-black text-sm uppercase tracking-widest mb-3 block">Phase 0{method.step}</span>
@@ -265,15 +266,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* 5. DATA-DRIVEN IMPACT (Dark Section for Contrast) */}
+      {/* 5. BUSINESS IMPACT */}
       <section className="py-24 md:py-32 bg-[#050505] text-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-7xl mx-auto">
             <div>
-              <span className="text-blue-500 font-bold text-xs tracking-[0.2em] uppercase block mb-4">ROI Generation</span>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">Measurable Business Impact.</h2>
+              <span className="text-blue-500 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Results</span>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">Business Impact</h2>
               <p className="text-lg text-zinc-400 font-light leading-relaxed mb-12">
-                We don't deal in hypotheticals. Our entire operational model is built to deliver hard, quantitative ROI that your executive board can see on the balance sheet within the first quarter.
+                We focus entirely on delivering measurable results that improve your bottom line and make your business more efficient.
               </p>
               
               <div className="space-y-4">
@@ -308,11 +309,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Intelligence</span>
-              <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">Enterprise Insights</h2>
+              <span className="text-blue-600 font-bold text-xs tracking-[0.2em] uppercase block mb-4">Insights</span>
+              <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">Recent Articles</h2>
             </div>
             <Link href="/blog" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-700 transition-colors">
-              View All Publications <ArrowRight className="ml-2 w-4 h-4" />
+              View All Posts <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
           
@@ -335,7 +336,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <div className="mt-auto flex items-center justify-between text-zinc-500 text-xs font-bold pt-6 border-t border-zinc-100">
                     <span>{post.date}</span>
                     <span className="text-blue-600 flex items-center group-hover:translate-x-2 transition-transform">
-                      Read Report <ArrowRight className="ml-2 w-4 h-4" />
+                      Read Post <ArrowRight className="ml-2 w-4 h-4" />
                     </span>
                   </div>
                 </div>
