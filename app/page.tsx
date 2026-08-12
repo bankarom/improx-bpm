@@ -36,8 +36,6 @@ export default async function Home() {
       
       <Metrics metrics={homeData.metrics} />
 
-      <Metrics metrics={homeData.metrics} />
-
       {/* Latest Insights / Blogs Section */}
       <section className="py-24 bg-zinc-50 border-t border-zinc-200">
         <div className="container mx-auto px-4 md:px-6">
@@ -92,6 +90,19 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-zinc-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Everything you need to know before partnering with our global teams.
+            </p>
+          </div>
+          <FaqAccordion />
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white border-t border-zinc-200 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-blue-50 rounded-full blur-[120px] pointer-events-none"></div>
@@ -106,57 +117,6 @@ export default async function Home() {
           </div>
           
           <ContactForm />
-        </div>
-      </section>
-
-      {/* Trust & Credentials Strip */}
-      <section className="py-16 bg-zinc-50 border-y border-zinc-200">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-sm font-black tracking-[0.2em] uppercase text-zinc-400 mb-10">
-            Enterprise-Grade Security & Compliance
-          </h2>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-24">
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-white shadow-sm border border-zinc-200 rounded-2xl flex items-center justify-center text-blue-600 mb-4">
-                <ShieldCheck className="w-7 h-7" />
-              </div>
-              <div className="font-bold text-zinc-900">ISO 27001</div>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-white shadow-sm border border-zinc-200 rounded-2xl flex items-center justify-center text-blue-600 mb-4">
-                <Lock className="w-7 h-7" />
-              </div>
-              <div className="font-bold text-zinc-900">SOC 2 Type II</div>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-white shadow-sm border border-zinc-200 rounded-2xl flex items-center justify-center text-blue-600 mb-4">
-                <FileCheck className="w-7 h-7" />
-              </div>
-              <div className="font-bold text-zinc-900">GDPR & HIPAA</div>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-white shadow-sm border border-zinc-200 rounded-2xl flex items-center justify-center text-blue-600 mb-4">
-                <Award className="w-7 h-7" />
-              </div>
-              <div className="font-bold text-zinc-900">99.9% SLA</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-zinc-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-              Everything you need to know before partnering with our global teams.
-            </p>
-          </div>
-          <FaqAccordion />
         </div>
       </section>
     </>

@@ -11,9 +11,9 @@ interface MetricProps {
 
 export default function Metrics({ metrics }: { metrics: MetricProps[] }) {
   return (
-    <section className="bg-blue-600 py-16 md:py-24">
+    <section className="bg-blue-500 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-500">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-blue-400">
           {metrics.map((metric, index) => (
             <MetricCard key={index} metric={metric} index={index} />
           ))}
