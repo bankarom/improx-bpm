@@ -32,15 +32,15 @@ export default async function Home() {
       
       <Metrics metrics={homeData.metrics} />
 
-      <section className="py-32 bg-slate-900 text-white text-center">
+      <section className="py-32 bg-white border-t border-zinc-200 text-center">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-6 flex justify-center">
             <span className="w-12 h-1 bg-blue-600 mb-6 block"></span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-zinc-900">
             Ready to Optimize Your Back Office?
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-zinc-600 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl mx-auto">
             Partner with Improx BPM to eliminate operational waste, reduce costs by up to 45%, and build a highly scalable, 24/7 delivery model.
           </p>
           <div className="flex justify-center">
