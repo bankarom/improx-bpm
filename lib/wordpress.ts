@@ -478,6 +478,11 @@ const MOCK_INDUSTRIES = [
   { title: 'Logistics & Supply Chain', slug: 'logistics', excerpt: 'Optimizing transport documentation, freight billing, track-and-trace operations, and vendor management to keep supply chains moving efficiently.' },
 ];
 
+const MOCK_HOME_PAGE = {
+  title: 'Home',
+  content: 'Welcome to Improx BPM'
+};
+
 export async function getHomePageData() {
   return MOCK_HOME_PAGE;
 }
