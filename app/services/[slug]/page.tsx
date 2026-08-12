@@ -377,7 +377,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {posts.map((post) => (
+            {posts.slice(0, 3).map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col h-full border border-zinc-200 bg-white rounded-[2rem] overflow-hidden hover:shadow-2xl hover:shadow-zinc-200/50 hover:-translate-y-2 transition-all duration-500">
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image 
