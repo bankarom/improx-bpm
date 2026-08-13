@@ -111,32 +111,32 @@ export default function Header() {
         </Sheet>
       </div>
 
-      {/* --- UNIQUE MEGA MENUS --- */}
+      {/* --- COMPACT MEGA MENUS --- */}
       <AnimatePresence>
         {activeMenu && (
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -5 }}
+            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute top-20 left-0 w-full bg-white border-b border-zinc-200 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden"
+            className="absolute top-[85px] left-1/2 -translate-x-1/2 w-[800px] bg-white rounded-3xl border border-zinc-200 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
           >
             
-            {/* SERVICES MEGA MENU (Dual Pillar Full View) */}
+            {/* SERVICES MEGA MENU */}
             {activeMenu === 'services' && (
-              <div className="container mx-auto px-4 md:px-6 py-12">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 relative">
+              <div className="p-8">
+                <div className="grid grid-cols-2 gap-12 relative">
                   
                   {/* Decorative Divider */}
-                  <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-zinc-200 to-transparent"></div>
+                  <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-zinc-200 to-transparent"></div>
 
                   {/* Pillar 1 */}
                   <div>
-                    <h3 className="text-sm font-black tracking-[0.2em] uppercase text-zinc-400 mb-8 flex items-center">
-                      <span className="w-8 h-px bg-zinc-300 mr-4"></span>
+                    <h3 className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-6 flex items-center">
+                      <span className="w-6 h-px bg-zinc-300 mr-3"></span>
                       {SERVICES_MENU.backOffice.title}
                     </h3>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1">
                       {SERVICES_MENU.backOffice.items.map((service) => {
                         const Icon = service.icon;
                         return (
@@ -144,15 +144,14 @@ export default function Header() {
                             key={service.slug}
                             href={`/services/${service.slug}`}
                             onClick={() => setActiveMenu(null)}
-                            className="group relative flex items-center p-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-zinc-50/80"
+                            className="group relative flex items-center p-3 -mx-3 rounded-2xl transition-all duration-300 hover:bg-zinc-50"
                           >
-                            <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-blue-100 transition-colors pointer-events-none"></div>
-                            <div className="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center mr-5 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200 transition-all duration-300 text-zinc-600">
-                              <Icon className="w-5 h-5" />
+                            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-zinc-600">
+                              <Icon className="w-4 h-4" />
                             </div>
                             <div>
-                              <h4 className="font-bold text-zinc-900 text-base mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
-                              <p className="text-sm text-zinc-500 font-medium">{service.desc}</p>
+                              <h4 className="font-bold text-zinc-900 text-sm mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
+                              <p className="text-xs text-zinc-500 font-medium">{service.desc}</p>
                             </div>
                           </Link>
                         );
@@ -162,11 +161,11 @@ export default function Header() {
 
                   {/* Pillar 2 */}
                   <div>
-                    <h3 className="text-sm font-black tracking-[0.2em] uppercase text-zinc-400 mb-8 flex items-center">
-                      <span className="w-8 h-px bg-zinc-300 mr-4"></span>
+                    <h3 className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-6 flex items-center">
+                      <span className="w-6 h-px bg-zinc-300 mr-3"></span>
                       {SERVICES_MENU.processExcellence.title}
                     </h3>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1">
                       {SERVICES_MENU.processExcellence.items.map((service) => {
                         const Icon = service.icon;
                         return (
@@ -174,15 +173,14 @@ export default function Header() {
                             key={service.slug}
                             href={`/services/${service.slug}`}
                             onClick={() => setActiveMenu(null)}
-                            className="group relative flex items-center p-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-zinc-50/80"
+                            className="group relative flex items-center p-3 -mx-3 rounded-2xl transition-all duration-300 hover:bg-zinc-50"
                           >
-                            <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-blue-100 transition-colors pointer-events-none"></div>
-                            <div className="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center mr-5 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200 transition-all duration-300 text-zinc-600">
-                              <Icon className="w-5 h-5" />
+                            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-zinc-600">
+                              <Icon className="w-4 h-4" />
                             </div>
                             <div>
-                              <h4 className="font-bold text-zinc-900 text-base mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
-                              <p className="text-sm text-zinc-500 font-medium">{service.desc}</p>
+                              <h4 className="font-bold text-zinc-900 text-sm mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
+                              <p className="text-xs text-zinc-500 font-medium">{service.desc}</p>
                             </div>
                           </Link>
                         );
@@ -194,10 +192,10 @@ export default function Header() {
               </div>
             )}
 
-            {/* INDUSTRIES MEGA MENU (Bento Box) */}
+            {/* INDUSTRIES MEGA MENU */}
             {activeMenu === 'industries' && (
-              <div className="container mx-auto px-4 md:px-6 py-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+              <div className="p-8">
+                <div className="grid grid-cols-2 gap-4">
                   {INDUSTRIES_MENU.map((industry) => {
                     const Icon = industry.icon;
                     return (
@@ -205,23 +203,15 @@ export default function Header() {
                         key={industry.slug}
                         href={`/industries/${industry.slug}`}
                         onClick={() => setActiveMenu(null)}
-                        className={`group relative overflow-hidden p-6 rounded-3xl border border-zinc-200 bg-zinc-50/50 hover:bg-white hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500 ${industry.colSpan} min-h-[160px] flex flex-col justify-between`}
+                        className={`group relative overflow-hidden p-5 rounded-2xl border border-zinc-100 bg-zinc-50/50 hover:bg-white hover:border-blue-100 hover:shadow-lg hover:shadow-blue-900/5 transition-all duration-300 flex items-start gap-4`}
                       >
-                        {/* Subtle Background Glow on Hover */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
-                        <div className="relative z-10 flex items-start justify-between mb-4">
-                          <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 group-hover:text-blue-600 group-hover:border-blue-200 transition-colors shadow-sm">
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all duration-300">
-                            <ChevronDown className="w-4 h-4 -rotate-90" />
-                          </div>
+                        <div className="w-10 h-10 shrink-0 rounded-xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 group-hover:text-blue-600 group-hover:border-blue-200 transition-colors shadow-sm">
+                          <Icon className="w-4 h-4" />
                         </div>
                         
-                        <div className="relative z-10">
-                          <h4 className="font-extrabold text-zinc-900 text-lg mb-1 group-hover:text-blue-600 transition-colors">{industry.title}</h4>
-                          <p className="text-sm text-zinc-500 font-medium leading-relaxed max-w-sm">{industry.desc}</p>
+                        <div>
+                          <h4 className="font-bold text-zinc-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">{industry.title}</h4>
+                          <p className="text-xs text-zinc-500 font-medium leading-relaxed">{industry.desc}</p>
                         </div>
                       </Link>
                     );
@@ -233,7 +223,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </header>
   );
 }
