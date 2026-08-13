@@ -122,78 +122,96 @@ export default function Header() {
             className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[800px] bg-white rounded-3xl border border-zinc-200 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
           >
             
-            {/* SERVICES MEGA MENU (Dynamic Featured Layout) */}
+            {/* SERVICES MEGA MENU (Simple 2-Column Layout) */}
             {activeMenu === 'services' && (
-              <div className="flex bg-white">
-                {/* Featured Section */}
-                <div className="w-[280px] shrink-0 bg-blue-600 p-8 text-white flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-blue-500 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 -ml-10 -mb-10 w-32 h-32 bg-blue-700 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
-                  <div className="relative z-10">
-                    <h3 className="font-black text-2xl tracking-tighter mb-4 leading-tight">Transform Your Operations.</h3>
-                    <p className="text-blue-100 text-sm font-medium mb-8 leading-relaxed">Discover how our intelligent automation and offshore expertise scale modern enterprises.</p>
-                  </div>
-                  <Link href="/services" onClick={() => setActiveMenu(null)} className="relative z-10 inline-flex items-center text-sm font-bold bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-colors w-fit shadow-lg shadow-blue-900/20 hover:-translate-y-0.5">
-                    View All Services
-                  </Link>
-                </div>
+              <div className="p-8">
+                <div className="grid grid-cols-2 gap-12 relative">
+                  
+                  {/* Decorative Divider */}
+                  <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-zinc-200 to-transparent"></div>
 
-                {/* Services Grid */}
-                <div className="p-8 flex-1">
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                    {/* Combine top services from both pillars for a cleaner grid */}
-                    {[...SERVICES_MENU.backOffice.items.slice(0, 4), ...SERVICES_MENU.processExcellence.items.slice(0, 4)].map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link 
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
-                          onClick={() => setActiveMenu(null)}
-                          className="group flex items-start transition-all duration-300 hover:translate-x-1"
-                        >
-                          <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-zinc-600 shrink-0 shadow-sm">
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <div className="overflow-hidden">
-                            <h4 className="font-bold text-zinc-900 text-sm mb-1 group-hover:text-blue-600 transition-colors truncate">{service.title}</h4>
-                            <p className="text-xs text-zinc-500 font-medium truncate">{service.desc}</p>
-                          </div>
-                        </Link>
-                      );
-                    })}
+                  {/* Pillar 1 */}
+                  <div>
+                    <h3 className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-6 flex items-center">
+                      <span className="w-6 h-px bg-zinc-300 mr-3"></span>
+                      {SERVICES_MENU.backOffice.title}
+                    </h3>
+                    <div className="flex flex-col gap-1">
+                      {SERVICES_MENU.backOffice.items.map((service) => {
+                        const Icon = service.icon;
+                        return (
+                          <Link 
+                            key={service.slug}
+                            href={`/services/${service.slug}`}
+                            onClick={() => setActiveMenu(null)}
+                            className="group relative flex items-center p-3 -mx-3 rounded-2xl transition-all duration-300 hover:bg-zinc-50"
+                          >
+                            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-zinc-600">
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-zinc-900 text-sm mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
+                              <p className="text-xs text-zinc-500 font-medium">{service.desc}</p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
+
+                  {/* Pillar 2 */}
+                  <div>
+                    <h3 className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-6 flex items-center">
+                      <span className="w-6 h-px bg-zinc-300 mr-3"></span>
+                      {SERVICES_MENU.processExcellence.title}
+                    </h3>
+                    <div className="flex flex-col gap-1">
+                      {SERVICES_MENU.processExcellence.items.map((service) => {
+                        const Icon = service.icon;
+                        return (
+                          <Link 
+                            key={service.slug}
+                            href={`/services/${service.slug}`}
+                            onClick={() => setActiveMenu(null)}
+                            className="group relative flex items-center p-3 -mx-3 rounded-2xl transition-all duration-300 hover:bg-zinc-50"
+                          >
+                            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-zinc-600">
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-zinc-900 text-sm mb-0.5 group-hover:text-blue-600 transition-colors">{service.title}</h4>
+                              <p className="text-xs text-zinc-500 font-medium">{service.desc}</p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
                 </div>
               </div>
             )}
 
-            {/* INDUSTRIES MEGA MENU (Bento Box Layout) */}
+            {/* INDUSTRIES MEGA MENU (Simple Grid) */}
             {activeMenu === 'industries' && (
-              <div className="p-6 bg-zinc-50">
-                <div className="grid grid-cols-6 gap-3">
-                  {INDUSTRIES_MENU.map((industry, i) => {
+              <div className="p-8">
+                <div className="grid grid-cols-2 gap-4">
+                  {INDUSTRIES_MENU.map((industry) => {
                     const Icon = industry.icon;
-                    // Dynamic col span to create an asymmetric bento box (first two are big, rest are small)
-                    const isLarge = i < 2;
-                    const colSpan = isLarge ? "col-span-3 row-span-2 p-6" : "col-span-2 p-4";
-                    
                     return (
                       <Link 
                         key={industry.slug}
                         href={`/industries/${industry.slug}`}
                         onClick={() => setActiveMenu(null)}
-                        className={`group relative overflow-hidden rounded-3xl bg-white border border-zinc-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500 flex flex-col justify-between ${colSpan}`}
+                        className="group relative overflow-hidden p-5 rounded-2xl border border-zinc-100 bg-zinc-50/50 hover:bg-white hover:border-blue-100 hover:shadow-lg hover:shadow-blue-900/5 transition-all duration-300 flex items-start gap-4"
                       >
-                        <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-blue-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
-                        <div className="relative z-10 flex items-start justify-between mb-4">
-                          <div className={`rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-zinc-600 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200 transition-all duration-300 ${isLarge ? 'w-12 h-12' : 'w-10 h-10'}`}>
-                            <Icon className={isLarge ? 'w-5 h-5' : 'w-4 h-4'} />
-                          </div>
+                        <div className="w-10 h-10 shrink-0 rounded-xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 group-hover:text-blue-600 group-hover:border-blue-200 transition-colors shadow-sm">
+                          <Icon className="w-4 h-4" />
                         </div>
                         
-                        <div className="relative z-10 mt-auto">
-                          <h4 className={`font-bold text-zinc-900 group-hover:text-blue-600 transition-colors ${isLarge ? 'text-lg mb-1' : 'text-sm mb-0.5'}`}>{industry.title}</h4>
-                          <p className={`text-zinc-500 font-medium leading-relaxed ${isLarge ? 'text-sm' : 'text-xs line-clamp-1'}`}>{industry.desc}</p>
+                        <div>
+                          <h4 className="font-bold text-zinc-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">{industry.title}</h4>
+                          <p className="text-xs text-zinc-500 font-medium leading-relaxed">{industry.desc}</p>
                         </div>
                       </Link>
                     );
