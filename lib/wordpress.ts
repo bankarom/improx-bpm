@@ -39,7 +39,7 @@ export type ServiceData = {
   businessImpact: { title: string; description: string }[];
 };
 
-const MOCK_SERVICES: ServiceData[] = [
+export const MOCK_SERVICES: ServiceData[] = [
   {
     title: 'Finance & Accounting Operations',
     slug: 'finance-accounting',
@@ -380,7 +380,7 @@ export type IndustryData = {
   businessImpact: { title: string; description: string }[];
 };
 
-const MOCK_INDUSTRIES: IndustryData[] = [
+export const MOCK_INDUSTRIES: IndustryData[] = [
   { 
     title: 'Banking, Financial Services & Insurance (BFSI)', 
     slug: 'bfsi', 
@@ -542,23 +542,28 @@ const MOCK_HOME_PAGE = {
   ]
 };
 
+import { getLiveServices, getLiveIndustries, getLivePosts } from './wordpress-api';
+
 export async function getHomePageData() {
   return MOCK_HOME_PAGE;
 }
 
 export async function getServices(): Promise<ServiceData[]> {
-  return MOCK_SERVICES;
+  const liveServices = await getLiveServices();
+  return liveServices as unknown as ServiceData[];
 }
 
 export async function getServiceBySlug(slug: string): Promise<ServiceData | undefined> {
-  return MOCK_SERVICES.find((s) => s.slug === slug);
+  const services = await getServices();
+  return services.find((s) => s.slug === slug);
 }
 
 export async function getIndustries(): Promise<IndustryData[]> {
-  return MOCK_INDUSTRIES;
+  const liveIndustries = await getLiveIndustries();
+  return liveIndustries as unknown as IndustryData[];
 }
 
-const MOCK_POSTS = [
+export const MOCK_POSTS = [
   {
     title: 'How Automated AP Processing Cuts Invoice Costs by 80%',
     slug: 'automated-ap-processing-cost',
@@ -682,9 +687,11 @@ const MOCK_POSTS = [
 ];
 
 export async function getPosts() {
-  return MOCK_POSTS;
+  const livePosts = await getLivePosts();
+  return livePosts;
 }
 
 export async function getPostBySlug(slug: string) {
-  return MOCK_POSTS.find((p) => p.slug === slug);
+  const posts = await getPosts();
+  return posts.find((p: any) => p.slug === slug);
 }

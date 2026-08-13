@@ -37,14 +37,39 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    const formDataObj = new FormData(e.target as HTMLFormElement);
+    const formData = {
+      name: `${formDataObj.get('firstName')} ${formDataObj.get('lastName')}`,
+      email: formDataObj.get('email'),
+      phone: `${formDataObj.get('countryCode')} ${formDataObj.get('phone')}`,
+      company: formDataObj.get('company'),
+      category: selectedCategory,
+      service: selectedService,
+      message: formDataObj.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error connecting to the server.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
+    }
   };
 
   return (
@@ -139,35 +164,35 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">First Name <span className="text-red-500">*</span></label>
-              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Last Name <span className="text-red-500">*</span></label>
-              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Work Email <span className="text-red-500">*</span></label>
-              <input type="email" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+              <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
             </div>
             <div>
               <label className="block text-sm font-bold text-zinc-900 mb-2">Phone Number <span className="text-red-500">*</span></label>
               <div className="flex">
-                <select className="px-3 py-3 rounded-l-xl border border-zinc-200 bg-zinc-100 focus:ring-2 focus:ring-blue-600 outline-none border-r-0 font-medium text-zinc-700">
+                <select name="countryCode" className="px-3 py-3 rounded-l-xl border border-zinc-200 bg-zinc-100 focus:ring-2 focus:ring-blue-600 outline-none border-r-0 font-medium text-zinc-700">
                   {COUNTRY_CODES.map(country => (
                     <option key={country.code} value={country.code}>{country.code}</option>
                   ))}
                 </select>
-                <input type="tel" required minLength={7} className="w-full px-4 py-3 rounded-r-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+                <input type="tel" name="phone" required minLength={7} className="w-full px-4 py-3 rounded-r-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
               </div>
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-bold text-zinc-900 mb-2">Company Name <span className="text-red-500">*</span></label>
-            <input type="text" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
+            <input type="text" name="company" required className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" />
           </div>
 
           {/* Cascading Dropdowns */}
@@ -206,8 +231,10 @@ export default function ContactForm() {
           )}
 
           <div>
-            <label className="block text-sm font-bold text-zinc-900 mb-2">Tell us about your current challenges</label>
+            <label className="block text-sm font-bold text-zinc-900 mb-2">Tell us about your current challenges <span className="text-red-500">*</span></label>
             <textarea 
+              name="message"
+              required
               rows={4} 
               className="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
               placeholder="Describe your current pain points, team size, and what you hope to achieve..."
