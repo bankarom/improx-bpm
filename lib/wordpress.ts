@@ -535,10 +535,10 @@ const MOCK_HOME_PAGE = {
     ctaSecondary: 'Explore Services'
   },
   metrics: [
-    { value: '99.9%', label: 'Processing Accuracy' },
-    { value: '45%', label: 'Average Cost Reduction' },
-    { value: '24/7', label: 'Global Operations' },
-    { value: '500+', label: 'Global Clients Served' }
+    { value: '99.9', suffix: '%', label: 'Processing Accuracy' },
+    { value: '45', suffix: '%', label: 'Average Cost Reduction' },
+    { value: '24/7', suffix: '', label: 'Global Operations' },
+    { value: '500', suffix: '+', label: 'Global Clients Served' }
   ]
 };
 
