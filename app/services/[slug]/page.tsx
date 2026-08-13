@@ -11,7 +11,7 @@ import {
   GraduationCap, Landmark, BarChart, ChevronDown, CheckCircle, Plus
 } from 'lucide-react';
 import { getServiceBySlug, getServices, getPosts } from '@/lib/wordpress';
-import FaqAccordion from '@/components/FaqAccordion';
+import FaqComponent from '@/components/FaqComponent';
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -359,7 +359,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">Frequently Asked Questions</h2>
           </div>
           
-          <FaqAccordion faqs={faqs} />
+          <FaqComponent faqs={faqs} />
         </div>
       </section>
 

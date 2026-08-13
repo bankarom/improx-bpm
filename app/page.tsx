@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqComponent from "@/components/FaqComponent";
 
 export default async function Home() {
   const homeData = await getHomePageData();
@@ -67,7 +67,7 @@ export default async function Home() {
               Everything you need to know before partnering with our global teams.
             </p>
           </div>
-          <FaqAccordion />
+          <FaqComponent />
         </div>
       </section>
 

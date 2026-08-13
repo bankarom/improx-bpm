@@ -6,7 +6,7 @@ import {
   ShoppingCart, Truck, RadioTower, CheckCircle, Plus, LayoutDashboard, Database, AlertOctagon
 } from 'lucide-react';
 import { getIndustries, getPosts } from '@/lib/wordpress';
-import FaqAccordion from '@/components/FaqAccordion';
+import FaqComponent from '@/components/FaqComponent';
 
 export async function generateStaticParams() {
   const industries = await getIndustries();
@@ -239,7 +239,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">Frequently Asked Questions</h2>
           </div>
           
-          <FaqAccordion faqs={faqs} />
+          <FaqComponent faqs={faqs} />
         </div>
       </section>
 
