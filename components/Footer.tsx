@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,9 +9,7 @@ export default function Footer() {
           
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="font-bold text-3xl tracking-tighter text-white">
-                <span className="text-blue-500">i</span>mpro<span className="text-blue-500">X</span> <span className="font-light">BPM</span>
-              </span>
+              <Image src="/logo.png" alt="improx BPM" width={150} height={40} className="object-contain brightness-0 invert" />
             </Link>
             <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-xs mb-6">
               Building secure, scalable digital platforms and intelligent technology systems for enterprise organisations worldwide.

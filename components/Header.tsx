@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Menu, Calculator, Users, ShoppingCart, MonitorSmartphone, FileText, Headset, Database, Bot, LineChart, Search, Network, ShieldCheck, Stethoscope, Truck, RadioTower } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
@@ -50,7 +51,7 @@ export default function Header() {
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 relative z-10" onClick={() => setActiveMenu(null)}>
-           <span className="font-black text-2xl tracking-tighter text-zinc-900"><span className="text-blue-600">i</span>mpro<span className="text-blue-600">X</span> <span className="font-light">BPM</span></span>
+           <Image src="/logo.png" alt="improx BPM" width={150} height={40} className="object-contain" priority />
         </Link>
 
         {/* Desktop Navigation (Shifted Right) */}
