@@ -119,7 +119,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute top-[85px] left-1/2 -translate-x-1/2 w-[800px] bg-white rounded-3xl border border-zinc-200 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
+            className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[800px] bg-white rounded-3xl border border-zinc-200 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
           >
             
             {/* SERVICES MEGA MENU */}
