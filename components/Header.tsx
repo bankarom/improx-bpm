@@ -50,7 +50,7 @@ export default function Header() {
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 relative z-10" onClick={() => setActiveMenu(null)}>
-           <span className="font-black text-2xl tracking-tighter text-zinc-900">improx<span className="text-blue-600">BPM</span></span>
+           <span className="font-black text-2xl tracking-tighter text-zinc-900"><span className="text-blue-600">i</span>mpro<span className="text-blue-600">X</span> <span className="font-light">BPM</span></span>
         </Link>
 
         {/* Desktop Navigation (Shifted Right) */}
