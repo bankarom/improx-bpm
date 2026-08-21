@@ -15,18 +15,32 @@ interface ServiceProps {
   image?: string;
 }
 
-const getIcon = (iconName?: string) => {
+const COLORS = [
+  { bg: 'bg-indigo-50', border: 'border-indigo-100', text: 'text-indigo-600', iconColor: 'text-indigo-600', hoverBorder: 'hover:border-indigo-300', hoverText: 'hover:text-indigo-700' },
+  { bg: 'bg-emerald-50', border: 'border-emerald-100', text: 'text-emerald-600', iconColor: 'text-emerald-600', hoverBorder: 'hover:border-emerald-300', hoverText: 'hover:text-emerald-700' },
+  { bg: 'bg-amber-50', border: 'border-amber-100', text: 'text-amber-600', iconColor: 'text-amber-600', hoverBorder: 'hover:border-amber-300', hoverText: 'hover:text-amber-700' },
+  { bg: 'bg-rose-50', border: 'border-rose-100', text: 'text-rose-600', iconColor: 'text-rose-600', hoverBorder: 'hover:border-rose-300', hoverText: 'hover:text-rose-700' },
+  { bg: 'bg-purple-50', border: 'border-purple-100', text: 'text-purple-600', iconColor: 'text-purple-600', hoverBorder: 'hover:border-purple-300', hoverText: 'hover:text-purple-700' },
+  { bg: 'bg-cyan-50', border: 'border-cyan-100', text: 'text-cyan-600', iconColor: 'text-cyan-600', hoverBorder: 'hover:border-cyan-300', hoverText: 'hover:text-cyan-700' },
+  { bg: 'bg-fuchsia-50', border: 'border-fuchsia-100', text: 'text-fuchsia-600', iconColor: 'text-fuchsia-600', hoverBorder: 'hover:border-fuchsia-300', hoverText: 'hover:text-fuchsia-700' },
+  { bg: 'bg-sky-50', border: 'border-sky-100', text: 'text-sky-600', iconColor: 'text-sky-600', hoverBorder: 'hover:border-sky-300', hoverText: 'hover:text-sky-700' },
+];
+
+const getIcon = (iconName?: string, colorClass: string = "text-blue-600") => {
   switch (iconName) {
-    case 'Database': return <Database className="h-6 w-6 text-blue-600" />;
-    case 'LineChart': return <LineChart className="h-6 w-6 text-blue-600" />;
-    case 'Calculator': return <Calculator className="h-6 w-6 text-blue-600" />;
-    case 'Headset': return <Headset className="h-6 w-6 text-blue-600" />;
-    default: return <Database className="h-6 w-6 text-blue-600" />;
+    case 'Database': return <Database className={`h-6 w-6 ${colorClass}`} />;
+    case 'LineChart': return <LineChart className={`h-6 w-6 ${colorClass}`} />;
+    case 'Calculator': return <Calculator className={`h-6 w-6 ${colorClass}`} />;
+    case 'Headset': return <Headset className={`h-6 w-6 ${colorClass}`} />;
+    default: return <Database className={`h-6 w-6 ${colorClass}`} />;
   }
 };
 
-const ServiceCard = ({ service }: { service: ServiceProps }) => (
-  <div className="relative group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-300 hover:border-blue-300 hover:shadow-xl flex flex-col h-full bg-white">
+const ServiceCard = ({ service, index }: { service: ServiceProps, index: number }) => {
+  const color = COLORS[index % COLORS.length];
+
+  return (
+  <div className={`relative group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-300 ${color.hoverBorder} hover:shadow-xl flex flex-col h-full bg-white`}>
     {/* Subtle Background Image with Heavy Overlay */}
     {service.image && (
       <>
@@ -41,8 +55,8 @@ const ServiceCard = ({ service }: { service: ServiceProps }) => (
     )}
     
     <div className="relative z-10 p-8 flex flex-col h-full">
-      <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-6 border border-blue-100">
-        {getIcon(service.icon)}
+      <div className={`w-12 h-12 rounded-xl ${color.bg} flex items-center justify-center mb-6 border ${color.border}`}>
+        {getIcon(service.icon, color.iconColor)}
       </div>
       
       <h3 className="text-xl font-bold text-slate-900 mb-3">
@@ -66,14 +80,15 @@ const ServiceCard = ({ service }: { service: ServiceProps }) => (
       
       <Link 
         href={`/services/${service.slug}`}
-        className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors group/link mt-auto w-fit"
+        className={`inline-flex items-center ${color.text} ${color.hoverText} font-semibold text-sm transition-colors group/link mt-auto w-fit`}
       >
         Explore Solution 
         <ArrowRight className="ml-1.5 h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" />
       </Link>
     </div>
   </div>
-);
+  );
+};
 
 export default function ServicesGrid({ services }: { services: ServiceProps[] }) {
   const backOfficeServices = services.filter(s => s.category === 'back-office');
@@ -108,8 +123,8 @@ export default function ServicesGrid({ services }: { services: ServiceProps[] })
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px]">
-              {backOfficeServices.map((service) => (
-                <ServiceCard key={service.slug} service={service} />
+              {backOfficeServices.map((service, index) => (
+                <ServiceCard key={service.slug} service={service} index={index} />
               ))}
             </div>
           </div>
@@ -124,8 +139,8 @@ export default function ServicesGrid({ services }: { services: ServiceProps[] })
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px]">
-              {processExcellenceServices.map((service) => (
-                <ServiceCard key={service.slug} service={service} />
+              {processExcellenceServices.map((service, index) => (
+                <ServiceCard key={service.slug} service={service} index={index + backOfficeServices.length} />
               ))}
             </div>
           </div>
