@@ -14,76 +14,71 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, ctaPrimary, ctaSecondary }: HeroProps) {
   return (
-    <section className="bg-zinc-950">
-      <div className="grid lg:grid-cols-2 min-h-[90vh]">
-        
-        {/* Left Content Half */}
-        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-950 relative overflow-hidden">
-          {/* Decorative background elements */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 bg-blue-500 rounded-full blur-[100px] opacity-40 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-indigo-600 rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Full-width Background Image */}
+      <Image 
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+        alt="Premium enterprise corporate office"
+        fill
+        className="object-cover"
+        priority
+      />
+      {/* Dark gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/95 via-zinc-900/80 to-transparent"></div>
+      
+      {/* Content Container */}
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-3xl pt-20"
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-sm mb-8 animate-fade-in">
+            <span className="flex h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+            <span className="text-white font-bold uppercase tracking-wider text-sm">improx BPM</span>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-2xl relative z-10"
-          >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-sm mb-8 animate-fade-in">
-              <span className="flex h-2 w-2 rounded-full bg-blue-400"></span>
-              <span className="text-white font-bold uppercase tracking-wider text-sm">improx BPM</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-              {title}
-            </h1>
-            
-            <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed max-w-xl">
-              {subtitle}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="/#contact"
-                className="inline-flex items-center justify-center bg-white hover:bg-blue-50 text-blue-900 rounded-none px-8 h-14 text-base font-bold transition-colors"
-              >
-                {ctaPrimary}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link 
-                href="/services"
-                className="inline-flex items-center justify-center border border-white/30 text-white hover:bg-white/10 rounded-none px-8 h-14 text-base font-semibold transition-colors"
-              >
-                {ctaSecondary}
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right Image Half */}
-        <div className="relative hidden lg:block h-full min-h-[500px]">
-          <Image 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop"
-            alt="Business professionals in modern colorful corporate office"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+            {title}
+          </h1>
           
-          {/* Floating Trust Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute bottom-12 -left-20 bg-white p-6 shadow-xl border-l-4 border-blue-600 max-w-xs"
-          >
-            <p className="text-4xl font-bold text-slate-900 mb-1">24/7</p>
-            <p className="text-sm text-slate-600 font-medium">Global Back-Office & Process Excellence</p>
-          </motion.div>
-        </div>
-        
+          <p className="text-xl md:text-2xl text-zinc-300 mb-10 leading-relaxed max-w-2xl font-medium">
+            {subtitle}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link 
+              href="/#contact"
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-none px-8 h-14 text-base font-bold transition-all shadow-lg hover:shadow-blue-600/20"
+            >
+              {ctaPrimary}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+            <Link 
+              href="/services"
+              className="inline-flex items-center justify-center border border-white/30 text-white hover:bg-white/10 backdrop-blur-sm rounded-none px-8 h-14 text-base font-semibold transition-colors"
+            >
+              {ctaSecondary}
+            </Link>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Floating Trust Badge */}
+      <motion.div 
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="absolute bottom-12 right-8 md:right-12 hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl shadow-2xl max-w-[280px] items-center gap-4"
+      >
+        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shrink-0">
+          <span className="text-white font-bold text-lg">24/7</span>
+        </div>
+        <div>
+          <p className="text-sm text-white font-bold leading-tight">Global Back-Office & Process Excellence</p>
+        </div>
+      </motion.div>
     </section>
   );
 }

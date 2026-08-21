@@ -33,36 +33,37 @@ const ServiceCard = ({ service, index }: { service: ServiceProps, index: number 
   const color = COLORS[index % COLORS.length];
 
   return (
-  <div className={`relative group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-300 ${color.hoverBorder} hover:shadow-xl flex flex-col h-full bg-white`}>
+  <div className={`relative group overflow-hidden rounded-2xl border transition-all duration-300 ${color.border} ${color.hoverBorder} hover:shadow-2xl flex flex-col min-h-[400px]`}>
     
-    {/* Realistic Image Header */}
+    {/* Full Background Image */}
     {service.image && (
-      <div className="relative h-48 w-full overflow-hidden border-b border-slate-100">
-        <Image 
-          src={service.image} 
-          alt={service.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-      </div>
+      <Image 
+        src={service.image} 
+        alt={service.title}
+        fill
+        className="object-cover group-hover:scale-110 transition-transform duration-700"
+      />
     )}
     
-    <div className="relative z-10 p-8 flex flex-col h-full">
+    {/* Gradient Overlay for Text Readability */}
+    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/70 to-zinc-900/30 group-hover:from-zinc-950 group-hover:via-zinc-900/80 transition-colors duration-500"></div>
+    
+    <div className="relative z-10 p-8 flex flex-col h-full justify-end">
       
-      <h3 className="text-xl font-bold text-slate-900 mb-3">
+      <h3 className="text-2xl font-bold text-white mb-3">
         {service.title}
       </h3>
       
-      <p className="text-slate-600 text-sm leading-relaxed mb-6">
+      <p className="text-zinc-300 text-sm leading-relaxed mb-6">
         {service.excerpt}
       </p>
       
       {service.features && (
-        <div className="space-y-3 mb-8 flex-1">
+        <div className="space-y-3 mb-8 hidden group-hover:block transition-all duration-300 animate-fade-in">
           {service.features.map((feature, i) => (
             <div key={i} className="flex items-start">
-              <CheckCircle2 className="h-4 w-4 text-blue-500 mr-2.5 shrink-0 mt-0.5" />
-              <span className="text-slate-700 text-sm">{feature}</span>
+              <CheckCircle2 className="h-4 w-4 text-blue-400 mr-2.5 shrink-0 mt-0.5" />
+              <span className="text-zinc-200 text-sm">{feature}</span>
             </div>
           ))}
         </div>
@@ -70,10 +71,10 @@ const ServiceCard = ({ service, index }: { service: ServiceProps, index: number 
       
       <Link 
         href={`/services/${service.slug}`}
-        className={`inline-flex items-center ${color.text} ${color.hoverText} font-semibold text-sm transition-colors group/link mt-auto w-fit`}
+        className={`inline-flex items-center text-white font-bold text-sm transition-colors group/link mt-auto w-fit bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full backdrop-blur-md`}
       >
         Explore Solution 
-        <ArrowRight className="ml-1.5 h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" />
+        <ArrowRight className="ml-2 h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" />
       </Link>
     </div>
   </div>
