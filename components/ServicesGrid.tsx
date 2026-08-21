@@ -26,38 +26,28 @@ const COLORS = [
   { bg: 'bg-sky-50', border: 'border-sky-100', text: 'text-sky-600', iconColor: 'text-sky-600', hoverBorder: 'hover:border-sky-300', hoverText: 'hover:text-sky-700' },
 ];
 
-const getIcon = (iconName?: string, colorClass: string = "text-blue-600") => {
-  switch (iconName) {
-    case 'Database': return <Database className={`h-6 w-6 ${colorClass}`} />;
-    case 'LineChart': return <LineChart className={`h-6 w-6 ${colorClass}`} />;
-    case 'Calculator': return <Calculator className={`h-6 w-6 ${colorClass}`} />;
-    case 'Headset': return <Headset className={`h-6 w-6 ${colorClass}`} />;
-    default: return <Database className={`h-6 w-6 ${colorClass}`} />;
-  }
-};
+// Remove getIcon
+
 
 const ServiceCard = ({ service, index }: { service: ServiceProps, index: number }) => {
   const color = COLORS[index % COLORS.length];
 
   return (
   <div className={`relative group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-300 ${color.hoverBorder} hover:shadow-xl flex flex-col h-full bg-white`}>
-    {/* Subtle Background Image with Heavy Overlay */}
+    
+    {/* Realistic Image Header */}
     {service.image && (
-      <>
+      <div className="relative h-48 w-full overflow-hidden border-b border-slate-100">
         <Image 
           src={service.image} 
           alt={service.title}
           fill
-          className="object-cover opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white pointer-events-none"></div>
-      </>
+      </div>
     )}
     
     <div className="relative z-10 p-8 flex flex-col h-full">
-      <div className={`w-12 h-12 rounded-xl ${color.bg} flex items-center justify-center mb-6 border ${color.border}`}>
-        {getIcon(service.icon, color.iconColor)}
-      </div>
       
       <h3 className="text-xl font-bold text-slate-900 mb-3">
         {service.title}

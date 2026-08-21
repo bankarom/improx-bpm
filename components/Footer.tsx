@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -14,15 +15,26 @@ export default function Footer() {
             <p className="text-sm text-slate-400 mt-4 leading-relaxed max-w-xs mb-6">
               Building secure, scalable digital platforms and intelligent technology systems for enterprise organisations worldwide.
             </p>
-            <div className="space-y-2 mb-6">
-              <p className="text-sm font-semibold text-slate-200">Costal Highway, Lewes, DE 19958</p>
-              <p className="text-sm font-semibold text-slate-200">
-                Phone: <a href="tel:+14079000208" className="text-slate-400 hover:text-white transition-colors">(407) 900-0208</a>
-              </p>
-              <p className="text-sm font-semibold text-slate-200">
-                Email: <a href="mailto:info@improxtech.com" className="text-slate-400 hover:text-white transition-colors">info@improxtech.com</a>
-              </p>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start text-sm text-slate-300">
+                <MapPin className="w-4 h-4 mr-3 text-slate-500 shrink-0 mt-0.5" />
+                <span>Costal Highway, Lewes, DE 19958</span>
+              </div>
+              <div className="flex items-center text-sm text-slate-300">
+                <Phone className="w-4 h-4 mr-3 text-slate-500 shrink-0" />
+                <span>Phone: <a href="tel:+14089000208" className="hover:text-white transition-colors">(408) 900-0208</a></span>
+              </div>
+              <div className="flex items-center text-sm text-slate-300">
+                <Mail className="w-4 h-4 mr-3 text-slate-500 shrink-0" />
+                <span>Email: <a href="mailto:enquiry@improxgroup.com" className="hover:text-white transition-colors">enquiry@improxgroup.com</a></span>
+              </div>
             </div>
+            
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-900 bg-emerald-950/30 text-emerald-400 text-xs font-semibold mb-6">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              ISO 27001 & SOC2 Type II Certified
+            </div>
+
             <div className="flex space-x-4 pt-4">
               <Link href="https://www.linkedin.com/company/improxtechinc/" target="_blank" className="text-slate-400 hover:text-white transition-colors">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -90,7 +102,7 @@ export default function Footer() {
         
         <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} Improx Technologies. All rights reserved.
+            &copy; {new Date().getFullYear()} Improx Integents LLC. A Division of the Improx Ecosystem. All Rights Reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-sm text-slate-500 hover:text-white transition-colors">Privacy Policy</Link>
