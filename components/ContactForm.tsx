@@ -76,71 +76,71 @@ export default function ContactForm() {
     <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-200 overflow-hidden flex flex-col md:flex-row">
       
       {/* Left Panel: Contact Info */}
-      <div className="bg-blue-600 text-white p-10 md:w-1/3 flex flex-col justify-between">
+      <div className="bg-zinc-950 text-white p-10 md:w-1/3 flex flex-col justify-between">
         <div>
           <h2 className="text-3xl font-extrabold mb-10">Get in Touch</h2>
           
           <div className="space-y-8">
             <div className="flex items-start gap-4">
-              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0 border border-white/10">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-blue-100 text-sm font-medium mb-1">Call us directly</div>
+                <div className="text-zinc-400 text-sm font-medium mb-1">Call us directly</div>
                 <div className="text-xl font-bold">+1 408 900 0208</div>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0 border border-white/10">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-blue-100 text-sm font-medium mb-1">Email us</div>
-                <div className="text-xl font-bold text-wrap break-all">info@improxtech.com</div>
+                <div className="text-zinc-400 text-sm font-medium mb-1">Email us</div>
+                <div className="text-lg font-bold text-wrap break-all">enquiry@improxgroup.com</div>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0 border border-white/10">
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-blue-100 text-sm font-medium mb-1">Response time</div>
+                <div className="text-zinc-400 text-sm font-medium mb-1">Response time</div>
                 <div className="text-xl font-bold">Within 2 hours</div>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-white/10 p-3 rounded-xl shrink-0">
+              <div className="bg-white/10 p-3 rounded-xl shrink-0 border border-white/10">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-blue-100 text-sm font-medium mb-1">Office Address</div>
+                <div className="text-zinc-400 text-sm font-medium mb-1">Office Address</div>
                 <div className="text-base font-bold text-wrap leading-tight">Costal Highway, Lewes, DE 19958</div>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="mt-16 pt-10 border-t border-white/20">
+        <div className="mt-16 pt-10 border-t border-white/10">
           <h3 className="font-bold text-lg mb-6">What to expect:</h3>
           <ul className="space-y-4">
             <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
-              <span className="font-medium text-blue-50">15-minute discovery call</span>
+              <CheckCircle2 className="w-5 h-5 text-zinc-500 shrink-0" />
+              <span className="font-medium text-zinc-300">15-minute discovery call</span>
             </li>
             <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
-              <span className="font-medium text-blue-50">Custom ROI & cost analysis</span>
+              <CheckCircle2 className="w-5 h-5 text-zinc-500 shrink-0" />
+              <span className="font-medium text-zinc-300">Custom ROI & cost analysis</span>
             </li>
             <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
-              <span className="font-medium text-blue-50">Platform integration assessment</span>
+              <CheckCircle2 className="w-5 h-5 text-zinc-500 shrink-0" />
+              <span className="font-medium text-zinc-300">Platform integration assessment</span>
             </li>
             <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-blue-300 shrink-0" />
-              <span className="font-medium text-blue-50">Personalized deployment plan</span>
+              <CheckCircle2 className="w-5 h-5 text-zinc-500 shrink-0" />
+              <span className="font-medium text-zinc-300">Personalized deployment plan</span>
             </li>
           </ul>
         </div>

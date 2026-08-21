@@ -208,8 +208,8 @@ export const MOCK_SERVICES: ServiceData[] = [
     title: 'Master Data Management',
     slug: 'master-data',
     category: 'process-excellence',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
-    secondaryImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
     overview: 'Inconsistent data across siloed departments leads to catastrophic decision-making errors. Our Master Data Management (MDM) services ensure that your enterprise has a singular, infallible source of truth.',
     excerpt: 'Ensuring your enterprise has a singular, infallible source of truth through aggressive data deduplication and governance.',
     deliverables: [
@@ -262,8 +262,8 @@ export const MOCK_SERVICES: ServiceData[] = [
     title: 'Lean Six Sigma Consulting',
     slug: 'lean-six-sigma',
     category: 'process-excellence',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
-    secondaryImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
     overview: 'Eliminate waste, reduce variance, and drastically improve the quality of your operations using data-driven Lean Six Sigma methodologies.',
     excerpt: 'Applying data-driven methodologies to identify operational bottlenecks, eliminate waste, and optimize workflows.',
     deliverables: [

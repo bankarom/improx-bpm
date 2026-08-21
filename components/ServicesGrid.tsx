@@ -45,8 +45,8 @@ const ServiceCard = ({ service, index }: { service: ServiceProps, index: number 
       />
     )}
     
-    {/* Gradient Overlay for Text Readability */}
-    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/70 to-zinc-900/30 group-hover:from-zinc-950 group-hover:via-zinc-900/80 transition-colors duration-500"></div>
+    {/* Gradient Overlay for Text Readability - lighter at the top so image is visible */}
+    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent group-hover:via-zinc-950/80 transition-colors duration-500"></div>
     
     <div className="relative z-10 p-8 flex flex-col h-full justify-end">
       
