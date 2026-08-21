@@ -17,8 +17,8 @@ export default function Hero({ title, subtitle, ctaPrimary, ctaSecondary }: Hero
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <Image 
-        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop"
-        alt="Premium enterprise corporate office"
+        src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=2000&auto=format&fit=crop"
+        alt="Back office operations team working at computers"
         fill
         className="object-cover"
         priority
